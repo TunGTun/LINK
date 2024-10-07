@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -46,4 +46,19 @@ public class CharCtrl : LinkMonoBehaviour
         _CharState = GetComponentInChildren<CharState>();
         Debug.LogWarning(transform.name + ": LoadCharState", gameObject);
     }
+
+ //   private void OnCollisionEnter2D(Collision2D collision)
+ //   {
+ //       if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+ //       {
+ //           Debug.Log("Chạm đất!");
+ //       }
+ //       else if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
+ //       {
+ //           Debug.Log("Chạm tường!");
+ //       } else if (collision.gameObject.layer == LayerMask.NameToLayer("Underside"))
+	//	{
+	//		Debug.Log("Chạm dưới!");
+	//	}
+	//}
 }

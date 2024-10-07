@@ -1,0 +1,6 @@
+- Chỉnh lại input để không có gia tốc khi trên không (input không gia tốc, chuyển gia tốc sang move on ground)
+
+- Menu bắt đầu
+- Màn hướng dẫn nút
+
+- Không có gia tốc khi trên không
