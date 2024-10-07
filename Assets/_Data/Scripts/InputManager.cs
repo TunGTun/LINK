@@ -11,11 +11,14 @@ public class InputManager : LinkMonoBehaviour
 
     protected KeyCode _lastKeyPressed;
 
-    [SerializeField] protected float _moveInput;
-    public float MoveInput { get => _moveInput; }
+    [SerializeField] protected float _moveAccelInput;
+    public float MoveAccelInput { get => _moveAccelInput; }
     [SerializeField] protected float _sensitivity = 2f;
 
-    [SerializeField] protected bool _starJumpInput;
+	[SerializeField] protected float _moveInput;
+	public float MoveInput { get => _moveInput; }
+
+	[SerializeField] protected bool _starJumpInput;
     public bool StarJumpInput { get => _starJumpInput; }
 
     [SerializeField] protected bool _endJumpInput;
@@ -48,13 +51,15 @@ public class InputManager : LinkMonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            _moveInput = Mathf.Lerp(_moveInput, 0f, Time.fixedDeltaTime * 3 / _sensitivity);
+			_moveAccelInput = Mathf.Lerp(_moveAccelInput, 0f, Time.fixedDeltaTime * 3 / _sensitivity);
+            _moveInput = 0;
             _lastKeyPressed = KeyCode.A;
         }
 
         if (Input.GetKeyDown(KeyCode.D))
         {
-            _moveInput = Mathf.Lerp(_moveInput, 0f, Time.fixedDeltaTime * 3 / _sensitivity);
+			_moveAccelInput = Mathf.Lerp(_moveAccelInput, 0f, Time.fixedDeltaTime * 3 / _sensitivity);
+            _moveInput = 0;
             _lastKeyPressed = KeyCode.D;
         }
 
@@ -62,19 +67,22 @@ public class InputManager : LinkMonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.D) && Input.GetKey(KeyCode.A)) _lastKeyPressed = KeyCode.A;
 
-        if (_lastKeyPressed == KeyCode.A && Input.GetKey(KeyCode.A) && _moveInput >= -1)
+        if (_lastKeyPressed == KeyCode.A && Input.GetKey(KeyCode.A))
         {
-            _moveInput -= Time.fixedDeltaTime / _sensitivity;
+            if (_moveAccelInput > -1) _moveAccelInput -= Time.fixedDeltaTime / _sensitivity;
+            _moveInput = -1;
             return;
         }
 
-        if (_lastKeyPressed == KeyCode.D && Input.GetKey(KeyCode.D) && _moveInput <= 1)
+        if (_lastKeyPressed == KeyCode.D && Input.GetKey(KeyCode.D))
         {
-            _moveInput += Time.fixedDeltaTime / _sensitivity;
+            if (_moveAccelInput < 1) _moveAccelInput += Time.fixedDeltaTime / _sensitivity;
+            _moveInput = 1;
             return;
         }
 
-        _moveInput = Mathf.Lerp(_moveInput, 0f, Time.fixedDeltaTime * 3 / _sensitivity);
+		_moveAccelInput = Mathf.Lerp(_moveAccelInput, 0f, Time.fixedDeltaTime * 3 / _sensitivity);
+        _moveInput = 0;
     }
 
     protected virtual void CheckJumpInput()

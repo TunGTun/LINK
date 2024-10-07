@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,8 +8,8 @@ public class CharDash : LinkMonoBehaviour
 
 	[SerializeField] protected bool _canDash;
 
-	public float dashDuration = 0.2f;
-	public float dashForce = 30f;
+	public float dashDuration = 0.2f; //Tạm
+	public float dashForce = 30f; //Tạm
 
 	[SerializeField] protected CharCtrl _charCtrl;
 

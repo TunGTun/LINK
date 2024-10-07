@@ -62,7 +62,7 @@ public class CharState : LinkMonoBehaviour
             return this._isWallCling;
 		}
 
-		if (InputManager.Instance.MoveInput > -0.01 && InputManager.Instance.MoveInput < 0.01)
+		if (InputManager.Instance.MoveInput == 0)
 		{
 			this._isWallCling = false;
 			return this._isWallCling;

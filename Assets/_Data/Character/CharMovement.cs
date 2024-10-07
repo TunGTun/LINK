@@ -35,9 +35,18 @@ public class CharMovement : LinkMonoBehaviour
 
     protected virtual void GetXDirection()
     {
-        _xDirection = InputManager.Instance.MoveInput;
-        _charCtrl.CharState.SignMove = Mathf.Sign(_xDirection);
-    }
+        if (_charCtrl.CharState.IsGrounded())
+		{
+			_xDirection = InputManager.Instance.MoveAccelInput;
+		} 
+        else
+        {
+            _xDirection = InputManager.Instance.MoveInput;
+		}
+
+        if (_xDirection == 0) return;
+		_charCtrl.CharState.SignMove = Mathf.Sign(InputManager.Instance.MoveInput);
+	}
 
     protected virtual void Move()
     {
