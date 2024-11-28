@@ -49,11 +49,11 @@ public class InputManager : LinkMonoBehaviour
     {
         //Kiểm tra nhấn nút A, D khi cả 2 nút cùng được nhấn
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
 			_moveAccelInput = Mathf.Lerp(_moveAccelInput, 0f, Time.fixedDeltaTime * 3 / _sensitivity);
             _moveInput = 0;
-            _lastKeyPressed = KeyCode.A;
+            _lastKeyPressed = KeyCode.RightArrow;
         }
 
         if (Input.GetKeyDown(KeyCode.D))
@@ -63,11 +63,11 @@ public class InputManager : LinkMonoBehaviour
             _lastKeyPressed = KeyCode.D;
         }
 
-        if (Input.GetKeyUp(KeyCode.A) && Input.GetKey(KeyCode.D)) _lastKeyPressed = KeyCode.D;
+        if (Input.GetKeyUp(KeyCode.RightArrow) && Input.GetKey(KeyCode.D)) _lastKeyPressed = KeyCode.D;
 
-        if (Input.GetKeyUp(KeyCode.D) && Input.GetKey(KeyCode.A)) _lastKeyPressed = KeyCode.A;
+        if (Input.GetKeyUp(KeyCode.D) && Input.GetKey(KeyCode.RightArrow)) _lastKeyPressed = KeyCode.RightArrow;
 
-        if (_lastKeyPressed == KeyCode.A && Input.GetKey(KeyCode.A))
+        if (_lastKeyPressed == KeyCode.RightArrow && Input.GetKey(KeyCode.RightArrow))
         {
             if (_moveAccelInput > -1) _moveAccelInput -= Time.fixedDeltaTime / _sensitivity;
             _moveInput = -1;
