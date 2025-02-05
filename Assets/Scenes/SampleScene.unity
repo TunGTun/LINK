@@ -1106,8 +1106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 684f3d66317de774dad893c8c50286d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveInput: 0
+  _moveAccelInput: 0
   _sensitivity: 2
+  _moveInput: 0
   _starJumpInput: 0
   _endJumpInput: 0
   _attackInput: 0
