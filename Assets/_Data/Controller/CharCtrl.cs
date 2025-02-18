@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(BoxCollider2D))]
+
 public class CharCtrl : LinkMonoBehaviour
 {
     [Header("CharCtrl")]
@@ -14,12 +17,24 @@ public class CharCtrl : LinkMonoBehaviour
     [SerializeField] protected CharState _CharState;
     public CharState CharState => _CharState;
 
+    [SerializeField] protected SpriteRenderer _SpriteRenderer;
+    public SpriteRenderer SpriteRenderer => _SpriteRenderer;
+
+    [SerializeField] protected Animator _Animator;
+    public Animator Animator => _Animator;
+
+    [SerializeField] protected CharStats _CharStats;
+    public CharStats CharStats => _CharStats;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadRigidbody();
         this.LoadCollider();
         this.LoadCharState();
+        this.LoadSpriteRenderer();
+        this.LoadAnimator();
+        this.LoadCharStats();
     }
 
     protected virtual void LoadRigidbody()
@@ -37,6 +52,8 @@ public class CharCtrl : LinkMonoBehaviour
     {
         if (this._BoxCollider2D != null) return;
         this._BoxCollider2D = GetComponent<BoxCollider2D>();
+        this._BoxCollider2D.size = new Vector2(0.5f, 0.88f);
+        this._BoxCollider2D.offset = new Vector2(-0.03f, -0.065f);
         Debug.LogWarning(transform.name + ": LoadCollider", gameObject);
     }
 
@@ -47,18 +64,41 @@ public class CharCtrl : LinkMonoBehaviour
         Debug.LogWarning(transform.name + ": LoadCharState", gameObject);
     }
 
- //   private void OnCollisionEnter2D(Collision2D collision)
- //   {
- //       if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
- //       {
- //           Debug.Log("Chạm đất!");
- //       }
- //       else if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
- //       {
- //           Debug.Log("Chạm tường!");
- //       } else if (collision.gameObject.layer == LayerMask.NameToLayer("Underside"))
-	//	{
-	//		Debug.Log("Chạm dưới!");
-	//	}
-	//}
+    protected virtual void LoadSpriteRenderer()
+    {
+        if (_SpriteRenderer != null) return;
+        _SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        Debug.LogWarning(transform.name + ": LoadSpriteRenderer", gameObject);
+    }
+
+    protected virtual void LoadAnimator()
+    {
+        if (_Animator != null) return;
+        _Animator = GetComponentInChildren<Animator>();
+        Debug.LogWarning(transform.name + ": LoadAnimator", gameObject);
+    }
+
+    protected virtual void LoadCharStats()
+    {
+        if (_CharStats != null) return;
+        _CharStats = GetComponentInChildren<CharStats>();
+        Debug.LogWarning(transform.name + ": LoadCharStats", gameObject);
+    }
+
+
+
+    //   private void OnCollisionEnter2D(Collision2D collision)
+    //   {
+    //       if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+    //       {
+    //           Debug.Log("Chạm đất!");
+    //       }
+    //       else if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
+    //       {
+    //           Debug.Log("Chạm tường!");
+    //       } else if (collision.gameObject.layer == LayerMask.NameToLayer("Underside"))
+    //	{
+    //		Debug.Log("Chạm dưới!");
+    //	}
+    //}
 }

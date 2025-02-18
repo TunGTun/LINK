@@ -13,19 +13,16 @@ public class InputManager : LinkMonoBehaviour
 
     [SerializeField] protected float _moveAccelInput;
     public float MoveAccelInput { get => _moveAccelInput; }
-    [SerializeField] protected float _sensitivity = 2f;
+    [SerializeField] protected float _sensitivity = 1f;
 
 	[SerializeField] protected float _moveInput;
 	public float MoveInput { get => _moveInput; }
 
-	[SerializeField] protected bool _starJumpInput;
-    public bool StarJumpInput { get => _starJumpInput; }
+	[SerializeField] protected bool _startJumpInput;
+    public bool StartJumpInput { get => _startJumpInput; }
 
     [SerializeField] protected bool _endJumpInput;
     public bool EndJumpInput { get => _endJumpInput; }
-
-    [SerializeField] protected bool _attackInput;
-    public bool AttackInput { get => _attackInput; }
     
     [SerializeField] protected bool _dashInput;
     public bool DashInput { get => _dashInput; }
@@ -35,19 +32,26 @@ public class InputManager : LinkMonoBehaviour
         base.Awake();
         if (InputManager._instance != null) Debug.LogError("Only 1 InputManager allow to exist");
         InputManager._instance = this;
+        //DontDestroyOnLoad(this);
     }
 
     void Update()
     {
         this.CheckMoveInput();
         this.CheckJumpInput();
-        this.CheckAttackInput();
         this.CheckDashInput();
     }
 
     protected virtual void CheckMoveInput()
     {
         //Kiểm tra nhấn nút A, D khi cả 2 nút cùng được nhấn
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+			_moveAccelInput = Mathf.Lerp(_moveAccelInput, 0f, Time.fixedDeltaTime * 3 / _sensitivity);
+            _moveInput = 0;
+            _lastKeyPressed = KeyCode.LeftArrow;
+        }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
@@ -56,25 +60,18 @@ public class InputManager : LinkMonoBehaviour
             _lastKeyPressed = KeyCode.RightArrow;
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-			_moveAccelInput = Mathf.Lerp(_moveAccelInput, 0f, Time.fixedDeltaTime * 3 / _sensitivity);
-            _moveInput = 0;
-            _lastKeyPressed = KeyCode.D;
-        }
+        if (Input.GetKeyUp(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow)) _lastKeyPressed = KeyCode.RightArrow;
 
-        if (Input.GetKeyUp(KeyCode.RightArrow) && Input.GetKey(KeyCode.D)) _lastKeyPressed = KeyCode.D;
+        if (Input.GetKeyUp(KeyCode.RightArrow) && Input.GetKey(KeyCode.LeftArrow)) _lastKeyPressed = KeyCode.LeftArrow;
 
-        if (Input.GetKeyUp(KeyCode.D) && Input.GetKey(KeyCode.RightArrow)) _lastKeyPressed = KeyCode.RightArrow;
-
-        if (_lastKeyPressed == KeyCode.RightArrow && Input.GetKey(KeyCode.RightArrow))
+        if (_lastKeyPressed == KeyCode.LeftArrow && Input.GetKey(KeyCode.LeftArrow))
         {
             if (_moveAccelInput > -1) _moveAccelInput -= Time.fixedDeltaTime / _sensitivity;
             _moveInput = -1;
             return;
         }
 
-        if (_lastKeyPressed == KeyCode.D && Input.GetKey(KeyCode.D))
+        if (_lastKeyPressed == KeyCode.RightArrow && Input.GetKey(KeyCode.RightArrow))
         {
             if (_moveAccelInput < 1) _moveAccelInput += Time.fixedDeltaTime / _sensitivity;
             _moveInput = 1;
@@ -87,17 +84,12 @@ public class InputManager : LinkMonoBehaviour
 
     protected virtual void CheckJumpInput()
     {
-        this._starJumpInput = Input.GetKeyDown(KeyCode.K);
-        this._endJumpInput = Input.GetKeyUp(KeyCode.K);
-    }
-
-    protected virtual void CheckAttackInput()
-    {
-        this._attackInput = Input.GetKey(KeyCode.J);
+        this._startJumpInput = Input.GetKeyDown(KeyCode.X);
+        this._endJumpInput = Input.GetKeyUp(KeyCode.X);
     }
 
     protected virtual void CheckDashInput()
     {
-        this._dashInput = Input.GetKeyDown(KeyCode.L);
+        this._dashInput = Input.GetKeyDown(KeyCode.Z);
     }
 }

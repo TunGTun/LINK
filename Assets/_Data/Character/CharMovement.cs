@@ -6,7 +6,7 @@ public class CharMovement : LinkMonoBehaviour
 {
     [Header("CharMovement")]
     [SerializeField] protected CharCtrl _charCtrl;
-    [SerializeField] protected float _moveSpeed = 10.0f;
+    [SerializeField] protected float _moveSpeed = 4.0f;
     [SerializeField] protected float _xDirection;
 
     protected override void LoadComponents()
@@ -30,38 +30,61 @@ public class CharMovement : LinkMonoBehaviour
     private void FixedUpdate()
     {
         this.Move();
-        //this.WallSlide();
     }
 
     protected virtual void GetXDirection()
     {
-        if (_charCtrl.CharState.IsGrounded())
-		{
-			_xDirection = InputManager.Instance.MoveAccelInput;
-		} 
-        else
-        {
-            _xDirection = InputManager.Instance.MoveInput;
-		}
+        //      if (_charCtrl.CharState.IsGrounded())
+        //{
+        //	_xDirection = InputManager.Instance.MoveAccelInput;
+        //} 
+        //      else
+        //      {
+        //          _xDirection = InputManager.Instance.MoveInput;
+        //}
+
+        _xDirection = InputManager.Instance.MoveAccelInput;
 
         if (_xDirection == 0) return;
-		_charCtrl.CharState.SignMove = Mathf.Sign(InputManager.Instance.MoveInput);
+		_charCtrl.CharState.SignMove = Mathf.Sign(InputManager.Instance.MoveAccelInput);
 	}
 
     protected virtual void Move()
     {
         float _moveStep = _xDirection * _moveSpeed;
-        //if (!_charCtrl.CharState.IsWallCling())
-        if (_charCtrl.CharState.WallJumping) return;
+        //if (_charCtrl.CharState.WallJumping) return;
         if (_charCtrl.CharState.Dashing) return;
-
         _charCtrl.Rigidbody2D.velocity = new Vector2(_moveStep, _charCtrl.Rigidbody2D.velocity.y);
-        //else _charCtrl.Rigidbody2D.velocity = new Vector2(_moveStep, -4f);
-	}
 
- //   protected virtual void WallSlide()
- //   {
- //       if (!_charCtrl.CharState.IsWallCling()) return;
-	//	_charCtrl.Rigidbody2D.velocity = new Vector2(_charCtrl.Rigidbody2D.velocity.y, Mathf.Clamp(_charCtrl.Rigidbody2D.velocity.y, -4f, float.MaxValue));
-	//}
+        this.RunningFlip();
+        this.RunningTransition();
+    }
+
+    protected virtual void RunningFlip()
+    {
+        if (_xDirection < 0)
+        {
+            _charCtrl.SpriteRenderer.flipX = true;
+            _charCtrl.BoxCollider2D.offset = new Vector2(0.03f, -0.065f);
+        }
+        if (_xDirection > 0)
+        {
+            _charCtrl.SpriteRenderer.flipX = false;
+            _charCtrl.BoxCollider2D.offset = new Vector2(-0.03f, -0.065f);
+        }
+    }
+
+    protected virtual void RunningTransition()
+    {
+        if (!_charCtrl.CharState.IsGrounded()) return;
+        if (_charCtrl.CharState.IsDead()) return;
+        if (_xDirection > 0.1 || _xDirection < -0.1)
+        {
+            _charCtrl.CharState.ChangeAnimationState("Run");
+        }
+        else
+        {
+            _charCtrl.CharState.ChangeAnimationState("Idle");
+        }
+    }
 }
