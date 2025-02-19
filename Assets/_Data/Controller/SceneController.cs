@@ -11,7 +11,11 @@ public class SceneController : LinkMonoBehaviour
     protected override void Awake()
     {
         base.Awake();
-        if (SceneController._instance != null) Debug.LogError("Only 1 SceneController allow to exist");
+        if (SceneController._instance != null)
+        {
+            Debug.LogWarning("Only 1 SceneController allow to exist");
+            Destroy(gameObject);
+        }
         SceneController._instance = this;
         DontDestroyOnLoad(gameObject);
     }
