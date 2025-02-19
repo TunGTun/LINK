@@ -1,12 +1,17 @@
 {
   "dependencies": {
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.tilemap": "1.0.0",
 >>>>>>> Stashed changes
+=======
+    "com.unity.2d.sprite": "1.0.0",
+>>>>>>> main
     "com.unity.collab-proxy": "2.5.2",
     "com.unity.feature.development": "1.0.1",
+    "com.unity.render-pipelines.universal": "14.0.11",
     "com.unity.textmeshpro": "3.0.7",
     "com.unity.timeline": "1.7.6",
     "com.unity.ugui": "1.0.0",

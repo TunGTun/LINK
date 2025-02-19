@@ -4,3 +4,9 @@
 - Màn hướng dẫn nút
 
 - Không có gia tốc khi trên không
+
+- Truyền nhận damage
+- Music
+- Pausegame
+- Dash effect
+- Thanh hp, thanh stamina

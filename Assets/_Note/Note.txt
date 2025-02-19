@@ -1,0 +1,4 @@
+- Không bị dính tường: Physics Material 2D => Friction(Ma sát) = 0
+- Chỉ va chạm mặt trên: Component Platform Effector 2D
+
+- Kiểm tra các va chạm trên enemies và point

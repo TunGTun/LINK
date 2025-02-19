@@ -12,7 +12,6 @@ public class CharJump : LinkMonoBehaviour
     protected bool _canJump;
     protected bool _finishJump;
 
-    public float wallJumpDuration = 0.5f; //Tạm
     public Vector2 jumpForce = new Vector2(5f, 10f); //Tạm
 
     [SerializeField] protected float _jumpForce = 6f;
@@ -45,6 +44,7 @@ public class CharJump : LinkMonoBehaviour
         this.FallSpeedLimit();
         this.JumpHight();
 		this.Jump();
+        this.JumpTransition();
     }
 
     protected virtual void Jump()
@@ -52,7 +52,6 @@ public class CharJump : LinkMonoBehaviour
 		if (!_canJump) return;
 
 		if (_charCtrl.CharState.IsGrounded()) this.JumpOnGround();
-        else if (_charCtrl.CharState.IsWallCling()) this.JumpOnWall();
 		else this.JumpInAir();
 
         _canJump = !_canJump;
@@ -70,22 +69,11 @@ public class CharJump : LinkMonoBehaviour
         _charCtrl.Rigidbody2D.velocity = new Vector2(_charCtrl.Rigidbody2D.velocity.x, this._jumpForce);
     }
 
-    protected virtual void JumpOnWall() //Tạm
-    {
-        _charCtrl.CharState.WallJumping = true;
-        Invoke("StopWallJump", wallJumpDuration);
-        _charCtrl.Rigidbody2D.velocity = new Vector2( -_charCtrl.CharState.SignMove * jumpForce.x, jumpForce.y);
-	}
-
-    protected virtual void StopWallJump()
-    {
-		_charCtrl.CharState.WallJumping = false;
-	}
-
 	protected virtual void CheckJump()
     {
-        if (InputManager.Instance.StarJumpInput && _jumpCount < _maxExtraJump) this._canJump = true;
+        if (InputManager.Instance.StartJumpInput && _jumpCount < _maxExtraJump) this._canJump = true;
         if (InputManager.Instance.EndJumpInput) _finishJump = true;
+        if (InputManager.Instance.StartJumpInput) _finishJump = false;
     }
 
     protected virtual void JumpHight()
@@ -95,13 +83,13 @@ public class CharJump : LinkMonoBehaviour
         if (_charCtrl.Rigidbody2D.velocity.y > (this._jumpForce + Mathf.Abs(_charCtrl.Rigidbody2D.velocity.x / 4)) / 1.5
             || _charCtrl.Rigidbody2D.velocity.y < 0f) return;
         _charCtrl.Rigidbody2D.velocity = new Vector2(_charCtrl.Rigidbody2D.velocity.x, _charCtrl.Rigidbody2D.velocity.y / 3);
-        _finishJump = false;
     }
 
     protected virtual void ResetJumpCount()
     {
-        if (_charCtrl.BoxCollider2D.isTrigger) return;
-        if (_charCtrl.CharState.IsGrounded() || _charCtrl.CharState.IsWallCling())
+        if (_charCtrl.Rigidbody2D.velocity.y > 0.1) return;
+        if (_charCtrl.Rigidbody2D.velocity.y < -0.1) return;
+        if (_charCtrl.CharState.IsGrounded())
             if (_jumpCount != 0) _jumpCount = 0;
     }
 
@@ -109,5 +97,21 @@ public class CharJump : LinkMonoBehaviour
     {
         if (_charCtrl.Rigidbody2D.velocity.y > _fallSpeedLimit) return;
         _charCtrl.Rigidbody2D.velocity = new Vector2(_charCtrl.Rigidbody2D.velocity.x, _fallSpeedLimit);
+    }
+
+    protected virtual void JumpTransition()
+    {
+        if (_charCtrl.CharState.IsGrounded()) return;
+        if (_charCtrl.CharState.IsDead()) return;
+        if (_charCtrl.Rigidbody2D.velocity.y > 0)
+        {
+            _charCtrl.CharState.ChangeAnimationState("Jump");
+            return;
+        }
+        if (_charCtrl.Rigidbody2D.velocity.y < 0)
+        {
+            _charCtrl.CharState.ChangeAnimationState("Fall");
+            return;
+        }
     }
 }
