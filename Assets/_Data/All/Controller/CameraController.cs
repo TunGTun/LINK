@@ -35,4 +35,5 @@ public class CameraController : LinkMonoBehaviour
         targetPosition = new Vector2(Mathf.Clamp(targetPosition.x, xAxisLimit.x, xAxisLimit.y), Mathf.Clamp(targetPosition.y, yAxisLimit.x, yAxisLimit.y));
         transform.position = Vector2.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
     }
+
 }
