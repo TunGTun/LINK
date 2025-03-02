@@ -1,0 +1,1170 @@
+fileFormatVersion: 2
+guid: ba0d84ecb50f5fb4bb51174ae9e2858a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GAP_gallery23-Idle_1
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 806
+        width: 94
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 870474b18653aa44493a338d817c5018
+      internalID: 266234316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_1
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 805
+        width: 188
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6db730038307ab4ebe48ffe143e2e2c
+      internalID: -326647818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_2
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 798
+        width: 96
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5324ffdbbf3b4344289f428c9518908a
+      internalID: 2031508377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_3
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 797
+        width: 98
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fac58f9f19d47f44b929e43553a738e
+      internalID: 1692849573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_4
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 797
+        width: 97
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2d0dd8a589d822488d615a606743734
+      internalID: -625931228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_5
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 797
+        width: 98
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28b81997b0309fc488606503a8bf11c6
+      internalID: 656692059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_6
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 680
+        width: 189
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fbf35dcee20083498b63353504ca84e
+      internalID: 279103630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_7
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 693
+        width: 90
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11ca84c8855404f408a1b71f4dde630b
+      internalID: 1820923161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_8
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 686
+        width: 94
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1324103fcbb4ac441b265e8efe55172a
+      internalID: 978169251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_9
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 679
+        width: 95
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 521e06e43c588ce419aff0bcdafb0bd4
+      internalID: -1678483838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_10
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 678
+        width: 116
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d2d14cd7e4f0374199224964f813c8d
+      internalID: -353879175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_11
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 680
+        width: 217
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d592c678d5fe794cb7a8f614e1c653f
+      internalID: -34222456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_12
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 561
+        width: 96
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1a0a0079a4a6934d8faf4502d29544b
+      internalID: -31786335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_13
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 548
+        width: 217
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fc762022f3997c4986fa2d291b777f9
+      internalID: -1833080111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_14
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 542
+        width: 105
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53e0ee5ef2cf8f44f86ebf5938b71edf
+      internalID: -1227519370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_15
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 547
+        width: 215
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb1ce0c4d2bca2944bbf3c951d995e3d
+      internalID: 560957102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_16
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 555
+        width: 107
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c130186984c21a41bcb3bf6e9a3d8eb
+      internalID: 578020732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_17
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 560
+        width: 121
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d74804f6bc0cfa40b2cc32714295787
+      internalID: -1392900172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_18
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 410
+        width: 95
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdfa8aa6753ab224d8c1654f24ef6074
+      internalID: -1007311672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_19
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 410
+        width: 96
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b75195ca69195004093d5edffee26a54
+      internalID: -1877914834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_20
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 512
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba582c80bba10964cbd9d298e4fdee5a
+      internalID: 789791126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_21
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 511
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64fa9c78643b01c439fbbbc3a2e35bf8
+      internalID: -1892645675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_22
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 508
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b39cf81dda945e64eba2698aca1728a0
+      internalID: 997035688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_23
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 510
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8df8120e9d81a5a4b8eb9bda315bd6a0
+      internalID: 1935092349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_24
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 509
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 940f1faa2c33f164f91ccfebca40a3c3
+      internalID: -1366955736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_25
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 511
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06d36ea14ed90d04ea41ed568fa35def
+      internalID: -18918870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_26
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 506
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ef8a74fdff559047be2238d2e4a804e
+      internalID: 1090491655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_27
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 410
+        width: 95
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c07be9dc22b92524089d4fbcff46e142
+      internalID: -1895356655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_28
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 504
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9429bd4d3fb144b4899de77f8e858885
+      internalID: -2011475338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_29
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 502
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b815dd68a0cafba458d57aef36efa44e
+      internalID: 822833303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_30
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 410
+        width: 94
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01439880adf57c842b649fb6b92985d9
+      internalID: 1878771947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_31
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 410
+        width: 94
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93a5b4d645c30be4da319f4a6751f3e0
+      internalID: -1317373082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_32
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 410
+        width: 94
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5eba0fb5242acc842831a8a73ef86a35
+      internalID: -861284830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_33
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 503
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e968247b0a31044ca17971e9d6ed976
+      internalID: -2018867946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_34
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 507
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6ac001cfa062e4448c9855b0c1343db
+      internalID: 1985643607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_35
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 410
+        width: 95
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc47f8fa057ee8643956659dd9052b14
+      internalID: 1225308745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_36
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 410
+        width: 95
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1aea7e96893d8b4bab7224d5a78e654
+      internalID: 730262493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_37
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 298
+        width: 90
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 700f034f384bcc348a15298273093ab9
+      internalID: 970093991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_38
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 291
+        width: 95
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7673f978ffa6f8c45b85ef894233ca5e
+      internalID: -1230333079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_39
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 290
+        width: 89
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d63f6f305d4de2a4ea2fab03ff1155ad
+      internalID: 1390782821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_40
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 291
+        width: 186
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6c0715492e041342bb75ee8d755895b
+      internalID: 1455689623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_41
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 295
+        width: 98
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65e0bbf98bdf30b4ea835b5ea71d7c4a
+      internalID: -966126726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_42
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 291
+        width: 92
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8a5abb49844a3c4bb212a18b40e74e4
+      internalID: 723989230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_43
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 295
+        width: 95
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 411b484c0ea53e841be671b32fd48deb
+      internalID: -213677165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_44
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 188
+        width: 126
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e40ce815b9cdeb4d82deb5fe4aa1c90
+      internalID: -1882829558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_45
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 186
+        width: 126
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82dd2ee7ae1d21141986511c2c6620e3
+      internalID: -1696454995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Photoroom_46
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 186
+        width: 237
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09461f653c2416e43a60699b8765ccbf
+      internalID: 544794172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GAP_gallery23-Idle_2
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 806
+        width: 95
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcdc042c7173ec4458fb31fa5b500cc3
+      internalID: 2077858610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 6170396e0052e79478439f98d243122d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      GAP_gallery23-Idle_1: 266234316
+      GAP_gallery23-Idle_2: 2077858610
+      GAP_gallery23-Photoroom_1: -326647818
+      GAP_gallery23-Photoroom_10: -353879175
+      GAP_gallery23-Photoroom_11: -34222456
+      GAP_gallery23-Photoroom_12: -31786335
+      GAP_gallery23-Photoroom_13: -1833080111
+      GAP_gallery23-Photoroom_14: -1227519370
+      GAP_gallery23-Photoroom_15: 560957102
+      GAP_gallery23-Photoroom_16: 578020732
+      GAP_gallery23-Photoroom_17: -1392900172
+      GAP_gallery23-Photoroom_18: -1007311672
+      GAP_gallery23-Photoroom_19: -1877914834
+      GAP_gallery23-Photoroom_2: 2031508377
+      GAP_gallery23-Photoroom_20: 789791126
+      GAP_gallery23-Photoroom_21: -1892645675
+      GAP_gallery23-Photoroom_22: 997035688
+      GAP_gallery23-Photoroom_23: 1935092349
+      GAP_gallery23-Photoroom_24: -1366955736
+      GAP_gallery23-Photoroom_25: -18918870
+      GAP_gallery23-Photoroom_26: 1090491655
+      GAP_gallery23-Photoroom_27: -1895356655
+      GAP_gallery23-Photoroom_28: -2011475338
+      GAP_gallery23-Photoroom_29: 822833303
+      GAP_gallery23-Photoroom_3: 1692849573
+      GAP_gallery23-Photoroom_30: 1878771947
+      GAP_gallery23-Photoroom_31: -1317373082
+      GAP_gallery23-Photoroom_32: -861284830
+      GAP_gallery23-Photoroom_33: -2018867946
+      GAP_gallery23-Photoroom_34: 1985643607
+      GAP_gallery23-Photoroom_35: 1225308745
+      GAP_gallery23-Photoroom_36: 730262493
+      GAP_gallery23-Photoroom_37: 970093991
+      GAP_gallery23-Photoroom_38: -1230333079
+      GAP_gallery23-Photoroom_39: 1390782821
+      GAP_gallery23-Photoroom_4: -625931228
+      GAP_gallery23-Photoroom_40: 1455689623
+      GAP_gallery23-Photoroom_41: -966126726
+      GAP_gallery23-Photoroom_42: 723989230
+      GAP_gallery23-Photoroom_43: -213677165
+      GAP_gallery23-Photoroom_44: -1882829558
+      GAP_gallery23-Photoroom_45: -1696454995
+      GAP_gallery23-Photoroom_46: 544794172
+      GAP_gallery23-Photoroom_5: 656692059
+      GAP_gallery23-Photoroom_6: 279103630
+      GAP_gallery23-Photoroom_7: 1820923161
+      GAP_gallery23-Photoroom_8: 978169251
+      GAP_gallery23-Photoroom_9: -1678483838
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
