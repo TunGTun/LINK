@@ -65,9 +65,9 @@ public class CharDamageReceiver : LinkMonoBehaviour
         }
     }
 
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(_Collider2D.bounds.center, _Collider2D.bounds.size);
-    }
+    //void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawWireCube(_Collider2D.bounds.center, _Collider2D.bounds.size);
+    //}
 }
