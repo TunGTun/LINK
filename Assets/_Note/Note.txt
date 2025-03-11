@@ -6,7 +6,12 @@
 - Script cần sửa : Parallax, ParallaxCtrl, LevelMenu + MainMenu + PauseMenu + SceneController + FinishPoint, MoveUpdown, LTWMove
 
 - Chọn 4 bối cảnh: Rừng, Sa mạc, Băng, Hang động
-- Thứ tự mở khóa: 1 nhảy + lướt (1 MP) + 1 MP -> + 1 nhảy + 1MP -> + dịch chuyển (2 MP) + 1 MP -> + 1MP
+- Thứ tự mở khóa: 0 -> + 1 nhảy + lướt (1 MP) + 1 MP -> + 1 nhảy + 1MP -> + dịch chuyển (2 MP) + 1 MP -> + 1MP
+
+1: 1 nhay, 1mp
+2: 2 nhay, 2mp 
+3: 2 nhay, 3mp (+ dich chuyen(2mp))
+4: 2 nhay, 4mp (+ dich chuyen)
 
 - Nhân vật 1.3
 - Max camera X phải 7.5
@@ -15,3 +20,12 @@
 	+ Char			: -5
 	+ Terrain		: -1
 	+ Background	: 0
+
+- UI buttons
+- Music
+- SFX
+- FX jump
+- FX dash
+- FX dmg receiver
+- Skill 3 (C)
+- Sửa tên
