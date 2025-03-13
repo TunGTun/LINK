@@ -1,21 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+ï»¿using UnityEngine;
 
-public class ScorpianController : MonoBehaviour
+public class ScorpionController : MonoBehaviour
 {
-    public float speed = 2f; // T?c ð? di chuy?n
-    public float leftLimit = -3f; // Gi?i h?n bên trái
-    public float rightLimit = 3f; // Gi?i h?n bên ph?i
+    public float speed = 2f;
+    public float leftLimit = 76f;
+    public float rightLimit = 90f;
 
-    private bool movingRight = true; // Tr?ng thái di chuy?n
-    private bool isAttacking = false; // Tr?ng thái t?n công
+    private bool movingRight = true;
+    private bool isAttacking = false;
     private Animator animator;
-    private Transform player; // Tham chi?u ð?n nhân v?t
+    private Rigidbody2D rb;
 
     void Start()
     {
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -28,10 +27,11 @@ public class ScorpianController : MonoBehaviour
 
     void Move()
     {
-        // Di chuy?n trái/ph?i
+        animator.SetBool("isMoving", true);
+
         if (movingRight)
         {
-            transform.position += Vector3.right * speed * Time.deltaTime;
+            rb.velocity = new Vector2(speed, rb.velocity.y);
             if (transform.position.x >= rightLimit)
             {
                 Flip();
@@ -40,20 +40,17 @@ public class ScorpianController : MonoBehaviour
         }
         else
         {
-            transform.position += Vector3.left * speed * Time.deltaTime;
+            rb.velocity = new Vector2(-speed, rb.velocity.y);
             if (transform.position.x <= leftLimit)
             {
                 Flip();
                 movingRight = true;
             }
         }
-
-        animator.SetBool("isMoving", true); // Chuy?n animation sang Move
     }
 
     void Flip()
     {
-        // L?t hý?ng b? c?p
         Vector3 newScale = transform.localScale;
         newScale.x *= -1;
         transform.localScale = newScale;
@@ -63,15 +60,18 @@ public class ScorpianController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            isAttacking = true;
-            animator.SetTrigger("AttackTrigger"); // Chuy?n sang animation Attack
+            animator.SetBool("isAttacking", true);
+            animator.SetBool("isMoving", false);
+            animator.SetTrigger("AttackTrigger");
         }
     }
 
-    // Hàm này có th? g?i t? animation event ð? reset sau khi t?n công
+
+    // Gá»i hÃ m nÃ y tá»« Animation Event sau khi Attack káº¿t thÃºc
     public void EndAttack()
     {
-        isAttacking = false;
-        animator.SetBool("isMoving", true); // Ti?p t?c di chuy?n
+        animator.SetBool("isAttacking", false);
+        animator.SetBool("isMoving", true);
     }
+
 }
