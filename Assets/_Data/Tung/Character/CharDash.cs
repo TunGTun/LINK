@@ -6,15 +6,15 @@ public class CharDash : LinkMonoBehaviour
 {
 	[Header("CharDash")]
 
-	[SerializeField] protected bool _canDash;
+	protected bool _canDash;
 
-	public float dashDuration = 0.15f; //Tạm
+	public float dashDuration = 0.1f; //Tạm
 	public float dashForce = 20f; //Tạm
-    public float dashCooldown = 2f; // Thời gian chờ giữa các lần lướt
+    public float dashCooldown = 1f; // Thời gian chờ giữa các lần lướt
 
     private float _lastDashTime; // Lưu thời gian lần lướt cuối cùng
 
-	public int dashMP = 1;
+	//public int dashMP = 1;
 
     [SerializeField] protected CharCtrl _charCtrl;
 
@@ -43,7 +43,9 @@ public class CharDash : LinkMonoBehaviour
 
 	protected virtual void CheckDash() 
 	{
-		if (InputManager.Instance.DashInput && Time.time >= _lastDashTime + dashCooldown && _charCtrl.CharStats.currMP >= this.dashMP) this._canDash = true;
+		if (InputManager.Instance.DashInput && Time.time >= _lastDashTime + dashCooldown
+			//&& _charCtrl.CharStats.currMP >= this.dashMP
+			) this._canDash = true;
 	}
 
 	protected virtual void Dash() 
@@ -58,7 +60,7 @@ public class CharDash : LinkMonoBehaviour
 
 		this._canDash = false;
         _lastDashTime = Time.time;
-		_charCtrl.CharStats.SubMP(1);
+		//_charCtrl.CharStats.SubMP(1);
     }
 
 	protected virtual void StopDash()

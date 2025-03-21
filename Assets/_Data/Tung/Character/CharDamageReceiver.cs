@@ -48,6 +48,8 @@ public class CharDamageReceiver : LinkMonoBehaviour
 
     void CheckForEnemies()
     {
+        if (_CharCtrl.CharState.IsInvisible) return;
+
         //Debug.Log(Time.time - lastDetectionTime);
         if (Time.time - lastDetectionTime < detectionCooldown) return;
 

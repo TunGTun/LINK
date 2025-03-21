@@ -27,6 +27,9 @@ public class InputManager : LinkMonoBehaviour
     [SerializeField] protected bool _dashInput;
     public bool DashInput { get => _dashInput; }
 
+    [SerializeField] protected bool _invisibleInput;
+    public bool InvisibleInput { get => _invisibleInput; }
+
     protected override void Awake()
     {
         base.Awake();
@@ -40,6 +43,7 @@ public class InputManager : LinkMonoBehaviour
         this.CheckMoveInput();
         this.CheckJumpInput();
         this.CheckDashInput();
+        this.CheckInvisibleInput();
     }
 
     protected virtual void CheckMoveInput()
@@ -91,5 +95,10 @@ public class InputManager : LinkMonoBehaviour
     protected virtual void CheckDashInput()
     {
         this._dashInput = Input.GetKeyDown(KeyCode.Z);
+    }
+
+    protected virtual void CheckInvisibleInput()
+    {
+        this._invisibleInput = Input.GetKeyDown(KeyCode.C);
     }
 }
