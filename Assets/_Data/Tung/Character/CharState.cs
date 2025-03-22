@@ -13,6 +13,7 @@ public class CharState : LinkMonoBehaviour
 
     //public bool WallJumping { get; set;}
     public bool Dashing { get; set; }
+    public bool IsInvisible{ get; set; }
     public float SignMove { get; set;} //Tạm
 
     [SerializeField] protected CharCtrl _charCtrl;

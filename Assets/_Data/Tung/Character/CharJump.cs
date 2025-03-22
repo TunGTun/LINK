@@ -15,8 +15,8 @@ public class CharJump : LinkMonoBehaviour
     public Vector2 jumpForce = new Vector2(5f, 10f); //Tạm
 
     [SerializeField] protected float _jumpForce = 6f;
-    [SerializeField] protected int _maxExtraJump = 1;
-    [SerializeField] protected float _fallSpeedLimit = -10f;
+    [SerializeField] protected int _maxExtraJump = 2;
+    [SerializeField] protected float _fallSpeedLimit = -100f;
 
     [SerializeField] protected CharCtrl _charCtrl;
 

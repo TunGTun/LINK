@@ -139,7 +139,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard Letters and Symbols_2
+      name: LeftArrow0
       rect:
         serializedVersion: 2
         x: 32
@@ -160,7 +160,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard Letters and Symbols_3
+      name: RightArrow0
       rect:
         serializedVersion: 2
         x: 48
@@ -475,7 +475,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard Letters and Symbols_18
+      name: C0
       rect:
         serializedVersion: 2
         x: 32
@@ -1273,7 +1273,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard Letters and Symbols_56
+      name: LeftArrow1
       rect:
         serializedVersion: 2
         x: 32
@@ -1294,7 +1294,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard Letters and Symbols_57
+      name: RightArrow1
       rect:
         serializedVersion: 2
         x: 48
@@ -1609,7 +1609,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard Letters and Symbols_72
+      name: C1
       rect:
         serializedVersion: 2
         x: 32
@@ -2375,6 +2375,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      C0: 1250557752
+      C1: -726285793
       Keyboard Letters and Symbols_0: 1295668105
       Keyboard Letters and Symbols_1: 1990478852
       Keyboard Letters and Symbols_10: -1726553504
@@ -2393,9 +2395,7 @@ TextureImporter:
       Keyboard Letters and Symbols_15: -1392860159
       Keyboard Letters and Symbols_16: 1092092678
       Keyboard Letters and Symbols_17: -463720128
-      Keyboard Letters and Symbols_18: 1250557752
       Keyboard Letters and Symbols_19: 1093680446
-      Keyboard Letters and Symbols_2: -660493458
       Keyboard Letters and Symbols_20: -1188754952
       Keyboard Letters and Symbols_21: -1382212067
       Keyboard Letters and Symbols_22: -1828537061
@@ -2406,7 +2406,6 @@ TextureImporter:
       Keyboard Letters and Symbols_27: -754490093
       Keyboard Letters and Symbols_28: 1689473026
       Keyboard Letters and Symbols_29: -839602844
-      Keyboard Letters and Symbols_3: 1885241099
       Keyboard Letters and Symbols_30: -12399143
       Keyboard Letters and Symbols_31: -741935127
       Keyboard Letters and Symbols_32: -352190715
@@ -2433,8 +2432,6 @@ TextureImporter:
       Keyboard Letters and Symbols_53: -1983547417
       Keyboard Letters and Symbols_54: 265155521
       Keyboard Letters and Symbols_55: -1874910494
-      Keyboard Letters and Symbols_56: -929501826
-      Keyboard Letters and Symbols_57: -946936883
       Keyboard Letters and Symbols_58: 1418579047
       Keyboard Letters and Symbols_59: 983988993
       Keyboard Letters and Symbols_6: 503453752
@@ -2451,7 +2448,6 @@ TextureImporter:
       Keyboard Letters and Symbols_7: -1997328794
       Keyboard Letters and Symbols_70: 1554622270
       Keyboard Letters and Symbols_71: -2006011567
-      Keyboard Letters and Symbols_72: -726285793
       Keyboard Letters and Symbols_73: 51497514
       Keyboard Letters and Symbols_74: -1127669579
       Keyboard Letters and Symbols_75: 445297375
@@ -2479,6 +2475,10 @@ TextureImporter:
       Keyboard Letters and Symbols_97: -104687059
       Keyboard Letters and Symbols_98: -235147362
       Keyboard Letters and Symbols_99: -1793705253
+      LeftArrow0: -660493458
+      LeftArrow1: -929501826
+      RightArrow0: 1885241099
+      RightArrow1: -946936883
       X0: -342191719
       X1: 715464598
       Z0: -1780450640
