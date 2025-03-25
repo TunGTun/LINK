@@ -64,7 +64,7 @@ public class CharJump : LinkMonoBehaviour
     protected virtual void JumpOnGround()
     {
         _charCtrl.Rigidbody2D.velocity = new Vector2(_charCtrl.Rigidbody2D.velocity.x,
-            this._jumpForce + Mathf.Abs(_charCtrl.Rigidbody2D.velocity.x / 4));
+            this._jumpForce + Mathf.Abs(_charCtrl.Rigidbody2D.velocity.x / 6));
     }
 
     protected virtual void JumpInAir()

@@ -13,7 +13,7 @@ public class InputManager : LinkMonoBehaviour
 
     [SerializeField] protected float _moveAccelInput;
     public float MoveAccelInput { get => _moveAccelInput; }
-    [SerializeField] protected float _sensitivity = 1f;
+    [SerializeField] protected float _sensitivity = 0.1f;
 
 	[SerializeField] protected float _moveInput;
 	public float MoveInput { get => _moveInput; }
