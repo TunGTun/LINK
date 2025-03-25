@@ -29,3 +29,5 @@
 - FX dmg receiver
 - Skill 3 (C)
 - Sửa tên
+- CheckPoint
+- Dead screen

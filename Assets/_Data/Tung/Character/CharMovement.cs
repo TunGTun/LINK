@@ -7,7 +7,7 @@ public class CharMovement : LinkMonoBehaviour
     [Header("CharMovement")]
     [SerializeField] protected CharCtrl _charCtrl;
     [SerializeField] protected float _moveSpeed = 3f;
-    [SerializeField] protected float _xDirection;
+    protected float _xDirection;
 
     protected override void LoadComponents()
     {
