@@ -38,17 +38,19 @@
 - SFX
 	+ Sound Effect: Bấm nút, 
 	Nhân vật: di chuyển, nhảy, lướt, tàng hình, nhận sát thương
+
 - FX jump
-- FX dash
 
-- FX dmg receiver: màn hình rung, nháy trắng, bật lại sau
+- FX dash OK(Tạo bóng nhanh hơn hay bóng biến mất nhanh hơn không?)
 
-- Skill 3 (C): mờ màn hình, mờ nhân vật
+- FX dmg receiver: màn hình rung, nháy trắng, bật lại sau OK(Trắng hay đỏ?);
 
-- Sửa tên
+- Skill 3 (C): mờ màn hình, mờ nhân vật OK(ấn nút bất tử luôn hay tàng hình mới bất tử?);
 
-- CheckPoint
+- Sửa tên OK
 
-- Dead screen
+- CheckPoint OK
 
-- Loadscene effect
+- Dead screen OK
+
+- Loadscene effect OK (Thích kiểu khác không?)

@@ -20,6 +20,9 @@ public class CharJump : LinkMonoBehaviour
 
     [SerializeField] protected CharCtrl _charCtrl;
 
+    public GameObject jumpFXPrefab;
+    public Transform jumpFXPoint;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -57,6 +60,8 @@ public class CharJump : LinkMonoBehaviour
 		if (_charCtrl.CharState.IsGrounded()) this.JumpOnGround();
 		else this.JumpInAir();
 
+        this.JumpFX();
+
         _canJump = !_canJump;
         _jumpCount++;
     }
@@ -74,6 +79,7 @@ public class CharJump : LinkMonoBehaviour
 
 	protected virtual void CheckJump()
     {
+        if (_charCtrl.CharState.GetIsDead()) this._canJump = false;
         if (InputManager.Instance.StartJumpInput && _jumpCount < _maxExtraJump) this._canJump = true;
         if (InputManager.Instance.EndJumpInput) _finishJump = true;
         if (InputManager.Instance.StartJumpInput) _finishJump = false;
@@ -105,6 +111,7 @@ public class CharJump : LinkMonoBehaviour
     protected virtual void JumpTransition()
     {
         if (_charCtrl.CharState.IsGrounded()) return;
+        if (_charCtrl.CharState.GetIsDead()) return;
         if (_charCtrl.Rigidbody2D.velocity.y > 0)
         {
             _charCtrl.CharState.ChangeAnimationState("Jump");
@@ -115,5 +122,11 @@ public class CharJump : LinkMonoBehaviour
             _charCtrl.CharState.ChangeAnimationState("Fall");
             return;
         }
+    }
+
+    protected virtual void JumpFX()
+    {
+        GameObject jumpFX = Instantiate(jumpFXPrefab,jumpFXPoint.position, jumpFXPoint.rotation);
+        Destroy(jumpFX, 0.5f);
     }
 }
