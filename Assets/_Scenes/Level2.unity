@@ -169,6 +169,8 @@ MonoBehaviour:
   dashDuration: 0.1
   dashForce: 20
   dashCooldown: 1
+  ghostEffect: {fileID: 0}
+  ghostDelaySeconds: 0
   _charCtrl: {fileID: 446119171}
 --- !u!1 &11450286
 GameObject:
@@ -8450,7 +8452,7 @@ Transform:
   m_GameObject: {fileID: 446119170}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 95.1, y: -12.8, z: 0}
+  m_LocalPosition: {x: 97.9, y: -14.5, z: 0}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -16714,8 +16716,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 3
-  maxMP: 2
   _charCtrl: {fileID: 0}
+  deadDuration: 2
+  deadDarkPanel: {fileID: 0}
+  deadPanel: {fileID: 0}
+  pauseButton: {fileID: 0}
+  checkPointPos: {x: 0, y: 0}
+  respawnEffect: {fileID: 0}
+  healthBarUI: {fileID: 0}
 --- !u!4 &1157875248
 Transform:
   m_ObjectHideFlags: 0
@@ -22892,6 +22900,8 @@ MonoBehaviour:
   positionOffset: {x: 0, y: 0}
   xAxisLimit: {x: 7.5, y: 244.4}
   yAxisLimit: {x: -30.2, y: 127.3}
+  magnitude: 0
+  duration: 0
 --- !u!1 &1396626438
 GameObject:
   m_ObjectHideFlags: 0
@@ -23036,7 +23046,7 @@ GameObject:
   - component: {fileID: 1408808926}
   - component: {fileID: 1408808927}
   - component: {fileID: 1408808928}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: decorative_obj_17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31210,6 +31220,10 @@ MonoBehaviour:
   _CharCtrl: {fileID: 446119171}
   detectionCooldown: 2
   lastDetectionTime: 0
+  bounceAmount: 1
+  cameraController: {fileID: 0}
+  originalMaterial: {fileID: 0}
+  flashMaterial: {fileID: 0}
 --- !u!1 &1563568835
 GameObject:
   m_ObjectHideFlags: 0
@@ -32918,6 +32932,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd2e8c9f19b4cb45afcc9676356eded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionAnim: {fileID: 0}
+  canvas: {fileID: 0}
+  mainCamera: {fileID: 0}
 --- !u!4 &1905646543
 Transform:
   m_ObjectHideFlags: 0
@@ -34110,6 +34127,8 @@ MonoBehaviour:
   _maxExtraJump: 2
   _fallSpeedLimit: -100
   _charCtrl: {fileID: 446119171}
+  jumpFXPrefab: {fileID: 0}
+  jumpFXPoint: {fileID: 0}
 --- !u!1 &2075631218
 GameObject:
   m_ObjectHideFlags: 0
