@@ -47,8 +47,8 @@ public class LevelMenu : LinkMonoBehaviour
 
     public void NewGame()
     {
-        PlayerPrefs.SetInt("ReachedIndex", 1);
-        PlayerPrefs.SetInt("UnlockedLevel", 1);
+        PlayerPrefs.SetInt("ReachedIndex", 4);
+        PlayerPrefs.SetInt("UnlockedLevel", 4);
         PlayerPrefs.Save();
         SceneController.Instance.LoadScene("SelectLevel");
     }

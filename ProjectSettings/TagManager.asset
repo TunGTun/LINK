@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Enemies
   - DeadZone
-  - Wall
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -16,8 +16,8 @@ TagManager:
   - UI
   - OneWayPlatform
   - StaticPlatform
-  - 
-  - 
+  - Wall
+  - Player
   - 
   - 
   - 

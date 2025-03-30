@@ -21,13 +21,36 @@
 	+ Terrain		: -1
 	+ Background	: 0
 
+
+
 - UI buttons
+	 + Main menu: Thoát (x), option bg, 
+		option: music bt, thanh music, about game ,how to play, credit
+	 + Select level: New game bt, bảng chọn, quay lại (mũi tên)
+	 + Level: Pause bt, pause bg, home bt, resume bt, restart
 - Music
+	 + Main ,level: 
+	 + 1: Golden Autumn
+	 + 2: 
+	 + 3: 
+	 + 4: 
+ 
 - SFX
+	+ Sound Effect: Bấm nút, 
+	Nhân vật: di chuyển, nhảy, lướt, tàng hình, nhận sát thương
+
 - FX jump
-- FX dash
-- FX dmg receiver
-- Skill 3 (C)
-- Sửa tên
-- CheckPoint
-- Dead screen
+
+- FX dash OK(Tạo bóng nhanh hơn hay bóng biến mất nhanh hơn không?)
+
+- FX dmg receiver: màn hình rung, nháy trắng, bật lại sau OK(Trắng hay đỏ?);
+
+- Skill 3 (C): mờ màn hình, mờ nhân vật OK(ấn nút bất tử luôn hay tàng hình mới bất tử?);
+
+- Sửa tên OK
+
+- CheckPoint OK
+
+- Dead screen OK
+
+- Loadscene effect OK (Thích kiểu khác không?)

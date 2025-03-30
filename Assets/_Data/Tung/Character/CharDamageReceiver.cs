@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,11 +11,17 @@ public class CharDamageReceiver : LinkMonoBehaviour
     [SerializeField] protected float detectionCooldown = 2f;
     [SerializeField] protected float lastDetectionTime = 0f;
 
+    public float bounceAmount = 1.0f;
+    public CameraController cameraController;
+    public Material originalMaterial, flashMaterial;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadCollider();
         this.LoadCharCtrl();
+        lastDetectionTime = Time.time - detectionCooldown;
+        originalMaterial = _CharCtrl.SpriteRenderer.material;
     }
 
     private void Update()
@@ -36,7 +43,20 @@ public class CharDamageReceiver : LinkMonoBehaviour
         Debug.LogWarning(transform.name + ": LoadCharCtrl", gameObject);
     }
 
-    public void TakeDamage(int dmg, bool isSub = true)
+    //public void TakeDamage(int dmg, bool isSub = true)
+    //{
+    //    if (!isSub)
+    //    {
+    //        this._CharCtrl.CharStats.AddHP(dmg);
+    //        return;
+    //    }
+    //    this._CharCtrl.CharStats.SubHP(dmg);
+
+    //    Vector2 targetPos = _CharCtrl.Rigidbody2D.position + new Vector2(-_CharCtrl.CharState.SignMove * bounceAmount, bounceAmount);
+    //    _CharCtrl.Rigidbody2D.DOMove(targetPos, 0.1f);
+    //}
+
+    public void TakeDamage(int dmg, Vector2 enemyPosition, bool isSub = true)
     {
         if (!isSub)
         {
@@ -44,13 +64,32 @@ public class CharDamageReceiver : LinkMonoBehaviour
             return;
         }
         this._CharCtrl.CharStats.SubHP(dmg);
+
+        // Tính hướng va chạm (hướng từ enemy đến nhân vật)
+        Vector2 hitDirection = (_CharCtrl.Rigidbody2D.position - enemyPosition).normalized;
+
+        // Ép y = 1, giữ x như cũ
+        hitDirection = new Vector2(hitDirection.x, 1).normalized;
+
+        // Đẩy lùi theo hướng ngược lại
+        Vector2 targetPos = _CharCtrl.Rigidbody2D.position + hitDirection * bounceAmount;
+        _CharCtrl.Rigidbody2D.DOMove(targetPos, 0.1f);
+        _CharCtrl.Rigidbody2D.velocity = _CharCtrl.Rigidbody2D.velocity / 2;
+
+        _CharCtrl.SpriteRenderer.material = flashMaterial;
+        StartCoroutine(MaterialCoroutine());
+        this.cameraController.ShakeCamera();
+    }
+
+    IEnumerator MaterialCoroutine()
+    {
+        yield return new WaitForSeconds(0.1f);
+        _CharCtrl.SpriteRenderer.material = originalMaterial;
     }
 
     void CheckForEnemies()
     {
         if (_CharCtrl.CharState.IsInvisible) return;
-
-        //Debug.Log(Time.time - lastDetectionTime);
         if (Time.time - lastDetectionTime < detectionCooldown) return;
 
         Vector2 boxCenter = _Collider2D.bounds.center;
@@ -61,15 +100,19 @@ public class CharDamageReceiver : LinkMonoBehaviour
         {
             if (hitCollider.CompareTag("Enemies"))
             {
-                this.TakeDamage(1);
+                this.TakeDamage(1, hitCollider.transform.position);
+                lastDetectionTime = Time.time;
+            }
+            if (hitCollider.CompareTag("DeadZone"))
+            {
+                this.TakeDamage(3, hitCollider.transform.position);
+                lastDetectionTime = Time.time;
+            }
+            if (hitCollider.CompareTag("Bullet"))
+            {
+                this.TakeDamage(1, hitCollider.transform.position);
                 lastDetectionTime = Time.time;
             }
         }
     }
-
-    //void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireCube(_Collider2D.bounds.center, _Collider2D.bounds.size);
-    //}
 }
