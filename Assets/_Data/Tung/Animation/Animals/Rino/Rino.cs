@@ -1,22 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Rino : LinkMonoBehaviour
 {
-    public Transform player; // Gán Player vào trong Inspector
-    public float speed = 3f; // Tốc độ di chuyển
-    public float detectionRangeX = 5f; // Phạm vi phát hiện theo trục X
-    public float sizeY;
+    public Transform player;
+    public float speed = 3f;
+    public float detectionRangeX = 5f;
+    private float sizeY;
+    private float sizeX;
     private Vector2 moveDirection;
-    private bool shouldMove = false;
-    public float checkInterval = 2f; // Thời gian giữa các lần kiểm tra vị trí Player
+    public bool canMove = false;
+    public float checkInterval = 2f;
     private float checkTimer;
+    public bool isFacingRight = true;
+
+    private Animator animator;
 
     protected override void Start()
     {
         base.Start();
-        sizeY = GetComponent<Collider2D>().bounds.size.y; // Lấy kích thước Y của GameObject
+        Collider2D collider = GetComponent<Collider2D>();
+        animator = GetComponent<Animator>();
+        sizeY = collider.bounds.size.y;
+        sizeX = collider.bounds.extents.x;
         checkTimer = checkInterval;
     }
 
@@ -24,18 +32,30 @@ public class Rino : LinkMonoBehaviour
     {
         if (player == null) return;
 
-        checkTimer -= Time.deltaTime;
-        if (checkTimer <= 0)
+        if (!canMove)
         {
-            CheckPlayerPosition();
-            checkTimer = checkInterval;
+            moveDirection = Vector2.zero;
+            checkTimer -= Time.deltaTime;
+            if (checkTimer <= 0)
+            {
+                if (HasPlayerChangedSide())
+                {
+                    CheckPlayerPosition();
+                }
+            }
         }
 
-        // Nếu đã xác định hướng, tiếp tục di chuyển thẳng
-        if (shouldMove)
+        if (canMove)
         {
             transform.position += (Vector3)moveDirection * speed * Time.deltaTime;
+            AdjustRotation(moveDirection.x);
         }
+    }
+
+    private bool HasPlayerChangedSide()
+    {
+        return (player.position.x > transform.position.x && !isFacingRight) ||
+               (player.position.x < transform.position.x && isFacingRight);
     }
 
     private void CheckPlayerPosition()
@@ -46,13 +66,12 @@ public class Rino : LinkMonoBehaviour
         float distanceX = Mathf.Abs(playerPos.x - enemyPos.x);
         float distanceY = Mathf.Abs(playerPos.y - enemyPos.y);
 
-        // Kiểm tra điều kiện về khoảng cách và chiều cao
-        if (distanceX < detectionRangeX && distanceY < sizeY / 2)
+        if (distanceX < detectionRangeX && distanceX > 1f && distanceY < sizeY / 2)
         {
-            // Xác định hướng di chuyển về phía Player
-            moveDirection = (playerPos - enemyPos).normalized;
-            moveDirection.y = 0; // Không di chuyển theo trục Y
-            shouldMove = true;
+            moveDirection = new Vector2(playerPos.x - enemyPos.x, 0).normalized;
+            canMove = true;
+            animator.SetBool("canMove", canMove);
+            checkTimer = checkInterval;
         }
     }
 
@@ -60,7 +79,23 @@ public class Rino : LinkMonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
-            shouldMove = false; // Dừng di chuyển khi chạm vào tường
+            canMove = false;
+            isFacingRight = !isFacingRight;
+            animator.SetBool("canMove", canMove);
+            transform.position -= (Vector3)moveDirection * 0.3f;
+            AdjustRotation(-moveDirection.x);
+        }
+    }
+
+    private void AdjustRotation(float sign)
+    {
+        if (sign > 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else if (sign < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 }

@@ -10,11 +10,15 @@ public class CharDash : LinkMonoBehaviour
 
 	public float dashDuration = 0.1f; //Tạm
 	public float dashForce = 20f; //Tạm
-    public float dashCooldown = 1f; // Thời gian chờ giữa các lần lướt
+    public float dashCooldown = 2f; // Thời gian chờ giữa các lần lướt
 
     private float _lastDashTime; // Lưu thời gian lần lướt cuối cùng
 
 	//public int dashMP = 1;
+
+	public GameObject ghostEffect;
+	public float ghostDelaySeconds;
+	private Coroutine dashEffectCoroutine;
 
     [SerializeField] protected CharCtrl _charCtrl;
 
@@ -22,6 +26,7 @@ public class CharDash : LinkMonoBehaviour
 	{
 		base.LoadComponents();
 		this.LoadCharCtrl();
+		_lastDashTime = Time.time - dashCooldown;
 	}
 
 	protected virtual void LoadCharCtrl()
@@ -55,6 +60,7 @@ public class CharDash : LinkMonoBehaviour
         if (_charCtrl.CharState.GetIsDead()) return;
 
         _charCtrl.CharState.Dashing = true;
+		this.StartDashEffect();
 		Invoke("StopDash", dashDuration);
 		_charCtrl.Rigidbody2D.velocity = new Vector2(_charCtrl.CharState.SignMove * dashForce, _charCtrl.Rigidbody2D.velocity.y * dashForce / 8);
 
@@ -67,5 +73,33 @@ public class CharDash : LinkMonoBehaviour
 	{
 		_charCtrl.Rigidbody2D.velocity = new Vector2(0, 0);
 		_charCtrl.CharState.Dashing = false;
+        this.StopDashEffect();
+    }
+
+    private void StartDashEffect()
+    {
+		if (dashEffectCoroutine != null) StopCoroutine(dashEffectCoroutine);
+		dashEffectCoroutine = StartCoroutine(DashEffectCoroutine());
+    }
+
+    private void StopDashEffect()
+    {
+        if (dashEffectCoroutine != null) StopCoroutine(dashEffectCoroutine);
+    }
+
+    IEnumerator DashEffectCoroutine()
+	{
+		while (true)
+		{
+			GameObject ghost = Instantiate(ghostEffect, 
+				new Vector3(_charCtrl.transform.position.x, _charCtrl.transform.position.y, -4.9f), _charCtrl.transform.rotation);
+			Sprite currSprite = _charCtrl.SpriteRenderer.sprite;
+			bool isFlipX = _charCtrl.SpriteRenderer.flipX;
+			ghost.GetComponentInChildren<SpriteRenderer>().sprite = currSprite;
+			ghost.GetComponentInChildren<SpriteRenderer>().flipX = isFlipX;
+
+			Destroy(ghost, 0.5f);
+			yield return new WaitForSeconds(ghostDelaySeconds);
+		}
 	}
 }

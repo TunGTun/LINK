@@ -1155,7 +1155,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1229,6 +1229,7 @@ TextureImporter:
       AnimationSheet_Character_7: 219457795
       AnimationSheet_Character_8: -1744464262
       AnimationSheet_Character_9: 1650186470
+      None: 1522061252
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

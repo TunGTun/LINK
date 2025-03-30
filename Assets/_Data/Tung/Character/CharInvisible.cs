@@ -18,6 +18,7 @@ public class CharInvisible : LinkMonoBehaviour
     {
         base.LoadComponents();
         this.LoadCharCtrl();
+        _lastInvisibleTime = Time.time - invisibleCooldown;
     }
 
     protected virtual void LoadCharCtrl()
@@ -51,6 +52,8 @@ public class CharInvisible : LinkMonoBehaviour
         if (_charCtrl.CharState.GetIsDead()) return;
 
         _charCtrl.CharState.IsInvisible = true;
+        //_charCtrl.SpriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
+        StartCoroutine(LerpColor(new Color(1f, 1f, 1f, 0.5f), 0.2f));
         Invoke("Appear", invisibleDuration);
 
         this._canInvisible = false;
@@ -60,5 +63,22 @@ public class CharInvisible : LinkMonoBehaviour
     protected virtual void Appear()
     {
         _charCtrl.CharState.IsInvisible = false;
+        //_charCtrl.SpriteRenderer.color = Color.white;
+        StartCoroutine(LerpColor(Color.white, 0.2f));
+    }
+
+    IEnumerator LerpColor(Color targetColor, float duration)
+    {
+        Color startColor = _charCtrl.SpriteRenderer.color;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            _charCtrl.SpriteRenderer.color = Color.Lerp(startColor, targetColor, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        _charCtrl.SpriteRenderer.color = targetColor;
     }
 }
