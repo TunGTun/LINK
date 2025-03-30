@@ -74,9 +74,7 @@ public class SkeletonController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            animator.SetBool("isAttacking", true);
-            animator.SetBool("isMoving", false);
-            animator.SetTrigger("AttackTrigger");
+            StartAttack();
         }
 
         if (other.CompareTag("Bullet"))
@@ -121,8 +119,18 @@ public class SkeletonController : MonoBehaviour
         }
     }
 
+    public void StartAttack()
+    {
+        isAttacking = true;
+        animator.SetBool("isAttacking", true);
+        animator.SetBool("isMoving", false);
+        animator.SetTrigger("AttackTrigger");
+        rb.velocity = Vector2.zero;
+    }
+
     public void EndAttack()
     {
+        isAttacking = false;
         animator.SetBool("isAttacking", false);
         animator.SetBool("isMoving", true);
     }
