@@ -42,7 +42,7 @@ public class fireball2 : MonoBehaviour
             transform.position += Vector3.down * fallSpeed * Time.deltaTime;
         }
 
-        if (transform.position.y < -5.11)
+        if (transform.position.y < 8.2)
         {
             Destroy(gameObject);
         }
