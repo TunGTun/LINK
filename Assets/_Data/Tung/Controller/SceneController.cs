@@ -36,6 +36,7 @@ public class SceneController : LinkMonoBehaviour
 
     IEnumerator LoadSceneCoroutine(string sceneName)
     {
+        AudioManager.Instance.StopMusic();
         transitionAnim.SetTrigger("End");
         yield return new WaitForSeconds(1);
 
@@ -45,6 +46,7 @@ public class SceneController : LinkMonoBehaviour
         yield return new WaitForSeconds(0.1f);
         LoadMainCamera();
         transitionAnim.SetTrigger("Start");
+        AudioManager.Instance.PlayMusic(sceneName);
     }
 
     IEnumerator LoadSceneCoroutine(int sceneIndex)
@@ -73,6 +75,11 @@ public class SceneController : LinkMonoBehaviour
     public int GetActiveSceneIndex()
     {
         return SceneManager.GetActiveScene().buildIndex;
+    }
+
+    public string GetActiveSceneName()
+    {
+        return SceneManager.GetActiveScene().name;
     }
 
     public void LoadMainCamera()
