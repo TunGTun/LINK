@@ -52,7 +52,9 @@ public class CharInvisible : LinkMonoBehaviour
         if (_charCtrl.CharState.GetIsDead()) return;
 
         _charCtrl.CharState.IsInvisible = true;
-        //_charCtrl.SpriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
+
+        AudioManager.Instance.PlaySFX("Invisible");
+
         StartCoroutine(LerpColor(new Color(1f, 1f, 1f, 0.5f), 0.2f));
         Invoke("Appear", invisibleDuration);
 
@@ -63,7 +65,6 @@ public class CharInvisible : LinkMonoBehaviour
     protected virtual void Appear()
     {
         _charCtrl.CharState.IsInvisible = false;
-        //_charCtrl.SpriteRenderer.color = Color.white;
         StartCoroutine(LerpColor(Color.white, 0.2f));
     }
 

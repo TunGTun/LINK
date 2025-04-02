@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CharMovement : LinkMonoBehaviour
 {
@@ -8,6 +6,8 @@ public class CharMovement : LinkMonoBehaviour
     [SerializeField] protected CharCtrl _charCtrl;
     [SerializeField] protected float _moveSpeed = 3f;
     protected float _xDirection;
+
+    //bool finishSFX = true;
 
     protected override void LoadComponents()
     {
@@ -46,8 +46,8 @@ public class CharMovement : LinkMonoBehaviour
         _xDirection = InputManager.Instance.MoveAccelInput;
 
         if (_xDirection == 0) return;
-		_charCtrl.CharState.SignMove = Mathf.Sign(InputManager.Instance.MoveAccelInput);
-	}
+        _charCtrl.CharState.SignMove = Mathf.Sign(InputManager.Instance.MoveAccelInput);
+    }
 
     protected virtual void Move()
     {
@@ -61,9 +61,18 @@ public class CharMovement : LinkMonoBehaviour
         if (_charCtrl.CharState.Dashing) return;
         _charCtrl.Rigidbody2D.velocity = new Vector2(_moveStep, _charCtrl.Rigidbody2D.velocity.y);
 
+        //if (finishSFX && Mathf.Abs(_xDirection) >= 0.9f) StartCoroutine(waitSFX());
         this.RunningFlip();
         this.RunningTransition();
     }
+
+    //IEnumerator waitSFX()
+    //{
+    //    finishSFX = false;
+    //    yield return new WaitForSeconds(0.5f);
+    //    AudioManager.Instance.PlaySFX("Move");
+    //    finishSFX = true;
+    //}
 
     protected virtual void RunningFlip()
     {
@@ -77,6 +86,15 @@ public class CharMovement : LinkMonoBehaviour
             _charCtrl.SpriteRenderer.flipX = false;
             _charCtrl.BoxCollider2D.offset = new Vector2(-0.03f, -0.065f);
         }
+    }
+    public float GetMoveSpeed()
+    {
+        return _moveSpeed;
+    }
+
+    public void SetMoveSpeed(float newSpeed)
+    {
+        _moveSpeed = newSpeed;
     }
 
     protected virtual void RunningTransition()
