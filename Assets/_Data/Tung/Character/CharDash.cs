@@ -60,6 +60,7 @@ public class CharDash : LinkMonoBehaviour
         if (_charCtrl.CharState.GetIsDead()) return;
 
         _charCtrl.CharState.Dashing = true;
+		AudioManager.Instance.PlaySFX("Dash");
 		this.StartDashEffect();
 		Invoke("StopDash", dashDuration);
 		_charCtrl.Rigidbody2D.velocity = new Vector2(_charCtrl.CharState.SignMove * dashForce, _charCtrl.Rigidbody2D.velocity.y * dashForce / 8);

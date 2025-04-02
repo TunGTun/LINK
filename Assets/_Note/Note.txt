@@ -36,10 +36,17 @@
 	 + 4: 
  
 - SFX
-	+ Sound Effect: Bấm nút, 
-	Nhân vật: di chuyển, nhảy, lướt, tàng hình, nhận sát thương
+	+ Sound Effect: 
+		\ Bấm nút: -
+	Nhân vật 
+		\ di chuyển: ?
+		\ nhảy: -
+		\ lướt: -
+		\ tàng hình: -
+		\ nhận sát thương: 
+		\ tiếp đất
 
-- FX jump
+- FX jump OK 
 
 - FX dash OK(Tạo bóng nhanh hơn hay bóng biến mất nhanh hơn không?)
 
@@ -54,3 +61,9 @@
 - Dead screen OK
 
 - Loadscene effect OK (Thích kiểu khác không?)
+
+- thời gian tàng hình
+- cooldown cạnh char
+
+- Lúc load scene có cần nhạc ?
+- Chết có tắt nhạc không?

@@ -9,6 +9,8 @@ public class CharMovement : LinkMonoBehaviour
     [SerializeField] protected float _moveSpeed = 3f;
     protected float _xDirection;
 
+    //bool finishSFX = true;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -61,9 +63,18 @@ public class CharMovement : LinkMonoBehaviour
         if (_charCtrl.CharState.Dashing) return;
         _charCtrl.Rigidbody2D.velocity = new Vector2(_moveStep, _charCtrl.Rigidbody2D.velocity.y);
 
+        //if (finishSFX && Mathf.Abs(_xDirection) >= 0.9f) StartCoroutine(waitSFX());
         this.RunningFlip();
         this.RunningTransition();
     }
+
+    //IEnumerator waitSFX()
+    //{
+    //    finishSFX = false;
+    //    yield return new WaitForSeconds(0.5f);
+    //    AudioManager.Instance.PlaySFX("Move");
+    //    finishSFX = true;
+    //}
 
     protected virtual void RunningFlip()
     {
