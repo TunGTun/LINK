@@ -1409,7 +1409,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1088448078}
         m_TargetAssemblyTypeName: CharStats, Assembly-CSharp
         m_MethodName: Respawn
         m_Mode: 1
@@ -13131,14 +13131,14 @@ MonoBehaviour:
   maxHP: 3
   _charCtrl: {fileID: 1932403097}
   deadDuration: 2
-  deadPanelRect: {fileID: 0}
-  pauseButtonRect: {fileID: 0}
-  tweenDuration: 0
-  canvasGroup: {fileID: 0}
-  deadMenu: {fileID: 0}
+  deadPanelRect: {fileID: 1636115077}
+  pauseButtonRect: {fileID: 2129801881}
+  tweenDuration: 0.5
+  canvasGroup: {fileID: 93806439}
+  deadMenu: {fileID: 931752882}
   checkPointPos: {x: 125.8, y: -17.7}
-  respawnEffect: {fileID: 0}
-  healthBarUI: {fileID: 0}
+  respawnEffect: {fileID: 1153674161}
+  healthBarUI: {fileID: 620631200}
 --- !u!4 &1088448079
 Transform:
   m_ObjectHideFlags: 0
@@ -13691,7 +13691,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 2012427101}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
