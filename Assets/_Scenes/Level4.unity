@@ -8708,9 +8708,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBeforeShake: 0
-  timeBeforeFall: 2
+  timeBeforeFall: 0.1
   shakeIntensity: 0.05
-  shakeDuration: 2
+  shakeDuration: 0.1
 --- !u!50 &718349359
 Rigidbody2D:
   serializedVersion: 4
@@ -10167,9 +10167,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBeforeShake: 0
-  timeBeforeFall: 2
+  timeBeforeFall: 0.1
   shakeIntensity: 0.05
-  shakeDuration: 2
+  shakeDuration: 0.1
 --- !u!50 &943519243
 Rigidbody2D:
   serializedVersion: 4
@@ -30276,9 +30276,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBeforeShake: 0
-  timeBeforeFall: 2
+  timeBeforeFall: 0.1
   shakeIntensity: 0.05
-  shakeDuration: 2
+  shakeDuration: 0.1
 --- !u!50 &1216592615
 Rigidbody2D:
   serializedVersion: 4
@@ -39599,7 +39599,7 @@ Transform:
   m_GameObject: {fileID: 1907680979}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.47, y: 1.1, z: -5}
+  m_LocalPosition: {x: 119.18, y: 1.1, z: -5}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -39766,9 +39766,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBeforeShake: 0
-  timeBeforeFall: 2
+  timeBeforeFall: 0.1
   shakeIntensity: 0.05
-  shakeDuration: 2
+  shakeDuration: 0.1
 --- !u!50 &1935489548
 Rigidbody2D:
   serializedVersion: 4
@@ -40251,9 +40251,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBeforeShake: 0
-  timeBeforeFall: 2
+  timeBeforeFall: 0.1
   shakeIntensity: 0.05
-  shakeDuration: 2
+  shakeDuration: 0.1
 --- !u!50 &2014217784
 Rigidbody2D:
   serializedVersion: 4
