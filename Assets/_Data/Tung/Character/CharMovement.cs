@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CharMovement : LinkMonoBehaviour
 {
@@ -48,8 +46,8 @@ public class CharMovement : LinkMonoBehaviour
         _xDirection = InputManager.Instance.MoveAccelInput;
 
         if (_xDirection == 0) return;
-		_charCtrl.CharState.SignMove = Mathf.Sign(InputManager.Instance.MoveAccelInput);
-	}
+        _charCtrl.CharState.SignMove = Mathf.Sign(InputManager.Instance.MoveAccelInput);
+    }
 
     protected virtual void Move()
     {
@@ -88,6 +86,15 @@ public class CharMovement : LinkMonoBehaviour
             _charCtrl.SpriteRenderer.flipX = false;
             _charCtrl.BoxCollider2D.offset = new Vector2(-0.03f, -0.065f);
         }
+    }
+    public float GetMoveSpeed()
+    {
+        return _moveSpeed;
+    }
+
+    public void SetMoveSpeed(float newSpeed)
+    {
+        _moveSpeed = newSpeed;
     }
 
     protected virtual void RunningTransition()
