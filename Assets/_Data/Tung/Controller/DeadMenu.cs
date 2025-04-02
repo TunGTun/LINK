@@ -12,7 +12,7 @@ public class DeadMenu : LinkMonoBehaviour
 
     public void Restart()
     {
-        SceneController.Instance.LoadScene(SceneController.Instance.GetActiveSceneIndex());
+        SceneController.Instance.LoadScene(SceneController.Instance.GetActiveSceneName());
         Time.timeScale = 1;
     }
 }

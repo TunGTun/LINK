@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -24,18 +26,17 @@ public class CharStats : LinkMonoBehaviour
 
     [SerializeField] protected CharCtrl _charCtrl;
 
-    public float deadDuration = 2f;
-    public GameObject deadDarkPanel;
-    public GameObject deadPanel;
-    public GameObject pauseButton;
+    public float deadDuration = 2f; 
+
+    public RectTransform deadPanelRect, pauseButtonRect;
+    public float tweenDuration;
+    public CanvasGroup canvasGroup;
+    public GameObject deadMenu;
+
     public Vector2 checkPointPos;
     public GameObject respawnEffect;
 
     public HealthBarUI healthBarUI;
-
-    //public SpriteRenderer healthBar;
-    //public Sprite[] healthBarSprites;
-    //public GameObject healthBarOJ;
 
     protected override void LoadComponents()
     {
@@ -156,10 +157,9 @@ public class CharStats : LinkMonoBehaviour
     IEnumerator StopTime()
     {
         yield return new WaitForSeconds(deadDuration);
+        deadMenu.SetActive(true);
         Time.timeScale = 0;
-        deadDarkPanel.SetActive(true);
-        deadPanel.SetActive(true);
-        pauseButton.SetActive(false);
+        DeadPanelIntro();
     }
 
     public void Respawn()
@@ -180,9 +180,8 @@ public class CharStats : LinkMonoBehaviour
     IEnumerator WaitRespawnCoroutine()
     {
         yield return new WaitForSeconds(1f);
-        deadDarkPanel.SetActive(false);
-        deadPanel.SetActive(false);
-        pauseButton.SetActive(true);
+        DeadPanelOutro();
+        deadMenu.SetActive(false);
         _charCtrl.transform.position = new Vector3(checkPointPos.x, checkPointPos.y, _charCtrl.transform.position.z);
         yield return new WaitForSeconds(1f);
         this.healthBarUI.ChangeHealthBarUI();
@@ -195,5 +194,19 @@ public class CharStats : LinkMonoBehaviour
     public void UpdateCheckpoint(Vector2 pos)
     {
         checkPointPos = pos;
+    }
+
+    void DeadPanelIntro()
+    {
+        canvasGroup.DOFade(1, tweenDuration).SetUpdate(true);
+        deadPanelRect.DOScale(Vector3.one, tweenDuration).SetUpdate(true);
+        pauseButtonRect.DOAnchorPosX(65, tweenDuration).SetUpdate(true);
+    }
+
+    void DeadPanelOutro()
+    {
+        canvasGroup.DOFade(0, tweenDuration).SetUpdate(true);
+        deadPanelRect.DOScale(Vector3.zero, tweenDuration).SetUpdate(true);
+        pauseButtonRect.DOAnchorPosX(-65, tweenDuration).SetUpdate(true);
     }
 }

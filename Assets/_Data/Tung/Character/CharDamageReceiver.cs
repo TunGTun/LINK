@@ -108,11 +108,11 @@ public class CharDamageReceiver : LinkMonoBehaviour
                 this.TakeDamage(3, hitCollider.transform.position);
                 lastDetectionTime = Time.time;
             }
-            //if (hitCollider.CompareTag("Bullet"))
-            //{
-            //    this.TakeDamage(1, hitCollider.transform.position);
-            //    lastDetectionTime = Time.time;
-            //}
+            if (hitCollider.CompareTag("Bullet"))
+            {
+                this.TakeDamage(1, hitCollider.transform.position);
+                lastDetectionTime = Time.time;
+            }
         }
     }
 }

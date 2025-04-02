@@ -60,6 +60,7 @@ public class CharJump : LinkMonoBehaviour
 		if (_charCtrl.CharState.IsGrounded()) this.JumpOnGround();
 		else this.JumpInAir();
 
+        AudioManager.Instance.PlaySFX("Jump");
         this.JumpFX();
 
         _canJump = !_canJump;
