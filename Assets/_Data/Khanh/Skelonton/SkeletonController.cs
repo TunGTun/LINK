@@ -1,12 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class SkeletonController : MonoBehaviour
 {
+    public static event Action onSkeletonRisen;
+    public GameObject attackZone;
+
     public float speed = 2f;
     public float leftLimit = 120f;
     public float rightLimit = 160f;
-    public float riseHeight = 3f; // Độ cao bộ xương nhô lên
+    public float riseHeight = 8f; // Độ cao bộ xương nhô lên
     public float riseSpeed = 1.5f; // Tốc độ nhô lên
 
     private bool movingRight = true;
@@ -23,6 +27,7 @@ public class SkeletonController : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         startPosition = transform.position;
+        attackZone.SetActive(false);
 
         // Đặt bộ xương ở dưới đất khi game bắt đầu
         transform.position = new Vector3(startPosition.x, startPosition.y - riseHeight, startPosition.z);
@@ -97,6 +102,7 @@ public class SkeletonController : MonoBehaviour
         }
 
         transform.position = targetPosition;
+        onSkeletonRisen?.Invoke();
     }
 
     void Die()
@@ -117,6 +123,16 @@ public class SkeletonController : MonoBehaviour
         {
             StartCoroutine(RiseFromGround());
         }
+    }
+
+    public void StartAttackZone()
+    {
+        attackZone.SetActive(true);
+    }
+
+    public void EndAttackZone()
+    {
+        attackZone.SetActive(false);
     }
 
     public void StartAttack()

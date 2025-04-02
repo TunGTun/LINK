@@ -33,8 +33,11 @@ public class StatueShooter : MonoBehaviour
         if (rb != null)
         {
             Vector2 randomDirection = Random.insideUnitCircle.normalized;
+            randomDirection.y = Mathf.Abs(randomDirection.y) * -1; // Luôn đảm bảo Y âm
+
             rb.velocity = randomDirection * bulletSpeed;
         }
+
 
         Destroy(bullet, bulletLifetime);
     }

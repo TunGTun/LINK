@@ -8,6 +8,8 @@ TagManager:
   - DeadZone
   - Bullet
   - ShootButton
+  - Button
+  - Wheel
   layers:
   - Default
   - TransparentFX

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class Bullet : MonoBehaviour
 
         if (other.CompareTag("Player")) // Nếu chạm vào kẻ địch
         {
-            StartDestroy(); // Bắt đầu quá trình biến mất
+            StartCoroutine(Delay());// Bắt đầu quá trình biến mất
         }
 
         if (other.CompareTag("Enemies")) // Nếu chạm vào kẻ địch
@@ -29,6 +30,12 @@ public class Bullet : MonoBehaviour
         {
             StartDestroy(); // Bắt đầu quá trình biến mất
         }
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(0.1f);
+        StartDestroy();
     }
 
     void StartDestroy()
