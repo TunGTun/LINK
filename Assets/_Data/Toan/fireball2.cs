@@ -13,10 +13,7 @@ public class fireball2 : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>(); // Lấy SpriteRenderer
 
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.enabled = false; // Ẩn sprite khi bắt đầu
-        }
+
 
         if (player == null)
         {
@@ -33,7 +30,7 @@ public class fireball2 : MonoBehaviour
             if (player.position.x <= transform.position.x + 2 - 1 && player.position.y <= transform.position.y && player.position.y > posiony)
             {
                 isFalling = true; // Kích hoạt rơi
-                if (spriteRenderer != null) spriteRenderer.enabled = true; // Hiện ra khi bắt đầu rơi
+
             }
         }
         else

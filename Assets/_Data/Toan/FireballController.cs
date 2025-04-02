@@ -14,10 +14,10 @@ public class FireballController : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>(); // Lấy SpriteRenderer
 
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.enabled = false; // Ẩn sprite khi bắt đầu
-        }
+        /*  if (spriteRenderer != null)
+          {
+              spriteRenderer.enabled = false; // Ẩn sprite khi bắt đầu
+          }*/
 
         if (player == null)
         {
@@ -34,7 +34,7 @@ public class FireballController : MonoBehaviour
             if (player.position.x > transform.position.x - 1 && player.position.y <= transform.position.y)
             {
                 isFalling = true; // Kích hoạt rơi
-                if (spriteRenderer != null) spriteRenderer.enabled = true; // Hiện ra khi bắt đầu rơi
+                /* if (spriteRenderer != null) spriteRenderer.enabled = true; // Hiện ra khi bắt đầu rơi*/
             }
         }
         else
@@ -53,14 +53,13 @@ public class FireballController : MonoBehaviour
     {
         if (collision == null)
         {
-            Debug.LogError("🔥 FireballController: collision is NULL!");
             return;
         }
 
         // Kiểm tra xem đối tượng có tag "Player" không
-        if (!collision.CompareTag("Player")) return;
+        if (!collision.CompareTag("Player")) gameObject.SetActive(false);
 
-        // Hủy fireball sau khi va chạm
-        Destroy(gameObject);
+
+
     }
 }
