@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class ScorpionController : MonoBehaviour
 {
@@ -11,8 +12,11 @@ public class ScorpionController : MonoBehaviour
     private Animator animator;
     private Rigidbody2D rb;
 
+    public GameObject attackZone;
+
     void Start()
     {
+        attackZone.SetActive(false);
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -58,20 +62,40 @@ public class ScorpionController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !isAttacking)
         {
-            animator.SetBool("isAttacking", true);
-            animator.SetBool("isMoving", false);
-            animator.SetTrigger("AttackTrigger");
+            StartCoroutine(AttackRoutine());
         }
     }
 
-
-    // Gọi hàm này từ Animation Event sau khi Attack kết thúc
-    public void EndAttack()
+    IEnumerator AttackRoutine()
     {
-        animator.SetBool("isAttacking", false);
-        animator.SetBool("isMoving", true);
+        isAttacking = true;
+        animator.SetBool("isAttacking", true);
+        animator.SetBool("isMoving", false);
+        animator.SetTrigger("AttackTrigger");
+        rb.velocity = Vector2.zero;
+
+        yield return new WaitForSeconds(0.5f); // Đợi animation attack chạy xong
+
+        EndAttack();
     }
 
+    public void StartAttackZone()
+    {
+        attackZone.SetActive(true);
+    }
+
+    public void EndAttackZone()
+    {
+        attackZone.SetActive(false);
+    }
+
+    public void EndAttack()
+    {
+        isAttacking = false;
+        animator.SetBool("isMoving", true);
+        animator.SetBool("isAttacking", false);
+        animator.ResetTrigger("AttackTrigger"); // Reset trigger để tránh bị kẹt animation
+    }
 }

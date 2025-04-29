@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
@@ -15,6 +16,11 @@ public class Bullet : MonoBehaviour
     {
         if (isDestroying) return; // Nếu đang phát animation hủy thì bỏ qua
 
+        if (other.CompareTag("Player")) // Nếu chạm vào kẻ địch
+        {
+            StartCoroutine(Delay());// Bắt đầu quá trình biến mất
+        }
+
         if (other.CompareTag("Enemies")) // Nếu chạm vào kẻ địch
         {
             StartDestroy(); // Bắt đầu quá trình biến mất
@@ -26,10 +32,15 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(0.1f);
+        StartDestroy();
+    }
+
     void StartDestroy()
     {
         isDestroying = true;
-        animator.SetBool("isFlying", false); // Tắt animation bay
         animator.SetTrigger("Destroy"); // Kích hoạt animation biến mất
         GetComponent<Rigidbody2D>().velocity = Vector2.zero; // Dừng đạn lại
         GetComponent<Collider2D>().enabled = false; // Tắt collider để không va chạm nữa

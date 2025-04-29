@@ -2,30 +2,72 @@
 
 public class StatueShooter : MonoBehaviour
 {
-    public GameObject bulletPrefab; // Prefab viên đạn
-    public float shootInterval = 1f; // Thời gian giữa các lần bắn
-    public float bulletSpeed = 3f; // Tốc độ bay của đạn
-    public float bulletLifetime = 3f; // Thời gian tồn tại của đạn
+    public GameObject bulletPrefab;
+    public float shootInterval = 1f;
+    public float bulletSpeed = 3f;
+    public float bulletLifetime = 3f;
 
-    void Start()
+    private bool isShooting = false;
+    private float lastShootTime = 0f;
+
+    void Update()
     {
-        InvokeRepeating(nameof(Shoot), 1f, shootInterval);
+        if (isShooting && Time.time - lastShootTime >= shootInterval)
+        {
+            Shoot();
+            lastShootTime = Time.time;
+
+            // Kiểm tra nếu không còn Enemies thì dừng bắn
+            if (EnemiesRemaining() == 0)
+            {
+                StopShooting();
+            }
+        }
     }
 
     void Shoot()
     {
-        // Tạo viên đạn tại vị trí của tượng
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
 
         if (rb != null)
         {
-            Vector2 randomDirection = Random.insideUnitCircle.normalized; // Hướng ngẫu nhiên
-            rb.velocity = randomDirection * bulletSpeed; // Gán vận tốc cho đạn
+            Vector2 randomDirection = Random.insideUnitCircle.normalized;
+            randomDirection.y = Mathf.Abs(randomDirection.y) * -1; // Luôn đảm bảo Y âm
+
+            rb.velocity = randomDirection * bulletSpeed;
         }
 
-        // Tự hủy viên đạn sau bulletLifetime giây để tránh rác bộ nhớ
-        Destroy(bullet, bulletLifetime);
 
+        Destroy(bullet, bulletLifetime);
     }
+
+    public void StartShooting()
+    {
+        isShooting = true;
+    }
+
+    public void StopShooting()
+    {
+        isShooting = false;
+    }
+
+    public int enemyLayer; // Chọn layer của kẻ địch trong Inspector
+
+    int EnemiesRemaining()
+    {
+        GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
+        int count = 0;
+
+        foreach (GameObject obj in allObjects)
+        {
+            if (obj.layer == enemyLayer)
+            {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
 }
