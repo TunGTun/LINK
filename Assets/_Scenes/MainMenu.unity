@@ -3855,14 +3855,14 @@ MonoBehaviour:
   - soundName: Level1
     soundClip: {fileID: 8300000, guid: 45e93c3cff1b79a428b636e8a1bff2ff, type: 3}
   - soundName: Level2
-    soundClip: {fileID: 8300000, guid: e45f635985bbee24c9854df3cc205284, type: 3}
+    soundClip: {fileID: 8300000, guid: 7ad727b146f63524a8d5fb225f76f0e4, type: 3}
   - soundName: Level3
     soundClip: {fileID: 8300000, guid: e45f635985bbee24c9854df3cc205284, type: 3}
   - soundName: Level4
-    soundClip: {fileID: 8300000, guid: e45f635985bbee24c9854df3cc205284, type: 3}
+    soundClip: {fileID: 8300000, guid: c64900619ba75284a8aed7c5f5ae087e, type: 3}
   sfxSounds:
   - soundName: Click
-    soundClip: {fileID: 8300000, guid: b9eb8797b0fbc914696c1ba3dfdd3590, type: 3}
+    soundClip: {fileID: 8300000, guid: 0bc0f27005bb9ae48a8aa4070af18e2b, type: 3}
   - soundName: Move
     soundClip: {fileID: 8300000, guid: 7871d97be7551554e8b70e15e3704a69, type: 3}
   - soundName: Jump
@@ -3872,7 +3872,11 @@ MonoBehaviour:
   - soundName: Invisible
     soundClip: {fileID: 8300000, guid: b7d99369701bffd43a7b560f58902375, type: 3}
   - soundName: TakeDamage
-    soundClip: {fileID: 8300000, guid: 0d3589fdb85af2f47b84a786c116d4e5, type: 3}
+    soundClip: {fileID: 8300000, guid: 6d2b67c5ba5339641be7ade7f1811a9e, type: 3}
+  - soundName: TakeHealth
+    soundClip: {fileID: 8300000, guid: ea04564b63bdc7a4c991ff9ec3d79be4, type: 3}
+  - soundName: TakeSpeed
+    soundClip: {fileID: 8300000, guid: f4e39264ab6e96846ad4653ce2224156, type: 3}
   musicSource: {fileID: 1428619427}
   sfxSource: {fileID: 1464276767}
 --- !u!4 &980221005
@@ -3884,7 +3888,7 @@ Transform:
   m_GameObject: {fileID: 980221003}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.07407427, y: 3.7962968, z: 90}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

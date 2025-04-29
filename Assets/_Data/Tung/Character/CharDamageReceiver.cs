@@ -65,6 +65,8 @@ public class CharDamageReceiver : LinkMonoBehaviour
         }
         this._CharCtrl.CharStats.SubHP(dmg);
 
+        AudioManager.Instance.PlaySFX("TakeDamage");
+
         // Tính hướng va chạm (hướng từ enemy đến nhân vật)
         Vector2 hitDirection = (_CharCtrl.Rigidbody2D.position - enemyPosition).normalized;
 

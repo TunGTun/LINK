@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class CharMovement : LinkMonoBehaviour
 {
@@ -6,6 +7,11 @@ public class CharMovement : LinkMonoBehaviour
     [SerializeField] protected CharCtrl _charCtrl;
     [SerializeField] protected float _moveSpeed = 3f;
     protected float _xDirection;
+
+    [SerializeField] private AudioSource moveAudioSource;
+    [SerializeField] private AudioClip moveClip;
+    [SerializeField] private float loopDelay = 0.5f;
+    private Coroutine moveSFXCoroutine;
 
     //bool finishSFX = true;
 
@@ -61,6 +67,16 @@ public class CharMovement : LinkMonoBehaviour
         if (_charCtrl.CharState.Dashing) return;
         _charCtrl.Rigidbody2D.velocity = new Vector2(_moveStep, _charCtrl.Rigidbody2D.velocity.y);
 
+        // Phát âm thanh nếu đang di chuyển
+        if (Mathf.Abs(_xDirection) > 0.1f && _charCtrl.CharState.IsGrounded())
+        {
+            PlayMoveSFX();
+        }
+        else
+        {
+            StopMoveSFX();
+        }
+
         //if (finishSFX && Mathf.Abs(_xDirection) >= 0.9f) StartCoroutine(waitSFX());
         this.RunningFlip();
         this.RunningTransition();
@@ -107,6 +123,37 @@ public class CharMovement : LinkMonoBehaviour
         else
         {
             _charCtrl.CharState.ChangeAnimationState("Idle");
+        }
+    }
+
+    protected virtual void PlayMoveSFX()
+    {
+        if (moveSFXCoroutine == null)
+        {
+            moveSFXCoroutine = StartCoroutine(LoopMoveSFX());
+        }
+    }
+
+    protected virtual void StopMoveSFX()
+    {
+        if (moveSFXCoroutine != null)
+        {
+            StopCoroutine(moveSFXCoroutine);
+            moveSFXCoroutine = null;
+        }
+
+        if (moveAudioSource.isPlaying)
+        {
+            moveAudioSource.Stop();
+        }
+    }
+
+    private IEnumerator LoopMoveSFX()
+    {
+        while (true)
+        {
+            moveAudioSource.PlayOneShot(moveClip);
+            yield return new WaitForSeconds(moveClip.length + loopDelay);
         }
     }
 }

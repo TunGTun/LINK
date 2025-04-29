@@ -67,3 +67,6 @@
 
 - Lúc load scene có cần nhạc ?
 - Chết có tắt nhạc không?
+
+
+- Nút P để pause
