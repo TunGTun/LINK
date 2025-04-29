@@ -3851,7 +3851,7 @@ MonoBehaviour:
   - soundName: MainMenu
     soundClip: {fileID: 8300000, guid: e45f635985bbee24c9854df3cc205284, type: 3}
   - soundName: SelectLevel
-    soundClip: {fileID: 8300000, guid: e45f635985bbee24c9854df3cc205284, type: 3}
+    soundClip: {fileID: 8300000, guid: c233f4baf2081224d9bb1c34bde5922a, type: 3}
   - soundName: Level1
     soundClip: {fileID: 8300000, guid: 45e93c3cff1b79a428b636e8a1bff2ff, type: 3}
   - soundName: Level2
