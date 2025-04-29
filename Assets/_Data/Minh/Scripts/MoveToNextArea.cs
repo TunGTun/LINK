@@ -31,6 +31,7 @@ public class MoveToNextArea2D : MonoBehaviour
                 StartCoroutine(SwitchDirectionAfterDelay());
             }
         }
+        
     }
 
     void OnCollisionEnter2D(Collision2D collision)
