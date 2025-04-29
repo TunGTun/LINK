@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class ParallaxController_k : MonoBehaviour
 {
@@ -11,28 +12,31 @@ public class ParallaxController_k : MonoBehaviour
     float[] backSpeed;
     float farthestBack;
 
-    [Range(0.01f, 0.05f)]
-    public float parallaxSpeed;
+    [Range(0.01f, 0.5f)]
+    public float parallaxSpeed = 0.02f;
 
-    public Texture[] newTextures; // Danh sách Texture mới cho từng layer
+    public Texture[] newTextures;
+    private Texture[] originalTextures;
 
-    private Vector3 lastCamPosition; // Lưu vị trí Camera trước đó
+    private Vector3 lastCamPosition;
 
     void Start()
     {
         cam = Camera.main.transform;
         camStartPos = cam.position;
-        lastCamPosition = cam.position; // Lưu lại vị trí ban đầu của Camera
+        lastCamPosition = cam.position;
 
         int backCount = transform.childCount;
         mat = new Material[backCount];
         backSpeed = new float[backCount];
         backgrounds = new GameObject[backCount];
+        originalTextures = new Texture[backCount];
 
         for (int i = 0; i < backCount; i++)
         {
             backgrounds[i] = transform.GetChild(i).gameObject;
             mat[i] = backgrounds[i].GetComponent<Renderer>().material;
+            originalTextures[i] = mat[i].mainTexture;
         }
 
         BackSpeedCalculate(backCount);
@@ -40,6 +44,8 @@ public class ParallaxController_k : MonoBehaviour
 
     void BackSpeedCalculate(int backCount)
     {
+        farthestBack = float.MinValue; // Reset giá trị xa nhất
+
         for (int i = 0; i < backCount; i++)
         {
             float depth = backgrounds[i].transform.position.z - cam.position.z;
@@ -55,50 +61,56 @@ public class ParallaxController_k : MonoBehaviour
         }
     }
 
-    //private void LateUpdate()
-    //{
-    //    if (cam.position == lastCamPosition) return; // Nếu Camera không di chuyển thì không làm gì cả
-
-    //    distance = cam.position.x - camStartPos.x;
-    //    transform.position = new Vector3(cam.position.x, transform.position.y, transform.position.z);
-
-    //    for (int i = 0; i < backgrounds.Length; i++)
-    //    {
-    //        float speed = backSpeed[i] * parallaxSpeed;
-    //        mat[i].SetTextureOffset("_MainTex", new Vector2(distance * speed, 0));
-    //    }
-
-    //    lastCamPosition = cam.position; // Lưu vị trí Camera hiện tại
-    //}
-
     private void LateUpdate()
     {
-        if (cam.position == lastCamPosition) return;
+        if (Vector3.Distance(cam.position, lastCamPosition) < 0.01f) return; // Kiểm tra di chuyển thực sự
 
-        distance = Mathf.Lerp(distance, cam.position.x - camStartPos.x, Time.deltaTime * 5f); // Làm mượt
-
+        distance = cam.position.x - camStartPos.x; // Tính khoảng cách chính xác
         transform.position = new Vector3(cam.position.x, transform.position.y, transform.position.z);
 
         for (int i = 0; i < backgrounds.Length; i++)
         {
             float speed = backSpeed[i] * parallaxSpeed;
-            mat[i].SetTextureOffset("_MainTex", new Vector2(distance * speed, 0));
+            mat[i].SetTextureOffset("_MainTex", new Vector2(distance * speed, 0)); // Nếu dùng URP/HDRP, đổi thành "_BaseMap"
         }
 
         lastCamPosition = cam.position;
     }
 
-
-    // Hàm này sẽ được gọi khi nhân vật đi vào vùng thay đổi nền
     public void ChangeParallaxTexture()
     {
+        StopAllCoroutines();
+        StartCoroutine(TransitionTextures(newTextures));
+    }
+
+    public void ResetParallaxTexture()
+    {
+        StopAllCoroutines();
+        StartCoroutine(TransitionTextures(originalTextures));
+    }
+
+    IEnumerator TransitionTextures(Texture[] targetTextures)
+    {
+        float duration = 1.5f;
+        float elapsedTime = 0f;
+
+        Texture[] startTextures = new Texture[mat.Length];
         for (int i = 0; i < mat.Length; i++)
         {
-            if (newTextures.Length >= i && newTextures[i] != null)
+            startTextures[i] = mat[i].mainTexture;
+        }
+
+        while (elapsedTime < duration)
+        {
+            for (int i = 0; i < mat.Length; i++)
             {
-                Debug.Log($"Đổi nền {i} thành {newTextures[i].name}");
-                mat[i].mainTexture = newTextures[i]; // Thay đổi texture
+                if (targetTextures[i] != null)
+                {
+                    mat[i].mainTexture = Mathf.Lerp(0, 1, elapsedTime / duration) > 0.5f ? targetTextures[i] : startTextures[i];
+                }
             }
+            elapsedTime += Time.deltaTime;
+            yield return null;
         }
     }
 }

@@ -7,6 +7,9 @@ TagManager:
   - Enemies
   - DeadZone
   - Bullet
+  - ShootButton
+  - Button
+  - Wheel
   layers:
   - Default
   - TransparentFX
@@ -18,7 +21,7 @@ TagManager:
   - StaticPlatform
   - Wall
   - Player
-  - 
+  - Enemies
   - 
   - 
   - 
