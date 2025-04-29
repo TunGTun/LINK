@@ -7,6 +7,7 @@ public class WolfController : MonoBehaviour
     public float speed = 2f;
     public float leftLimit = 270f;
     public float rightLimit = 290f;
+    public GameObject AttackZone;
 
     private bool movingRight = true;
     private bool isAttacking = false;
@@ -16,6 +17,7 @@ public class WolfController : MonoBehaviour
 
     void Start()
     {
+        AttackZone.SetActive(false);
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -98,6 +100,16 @@ public class WolfController : MonoBehaviour
         yield return new WaitForSeconds(1f); // Đợi animation attack chạy xong
 
         EndAttack();
+    }
+
+    public void StartAttackZone()
+    {
+        AttackZone.SetActive(true);
+    }
+
+    public void EndAttackZone()
+    {
+        AttackZone.SetActive(false);
     }
 
     public void EndAttack()

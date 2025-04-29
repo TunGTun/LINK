@@ -1,11 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class WormController : MonoBehaviour
 {
     private Animator ani;
+    public GameObject AttackZone;
 
     private bool isDie = false;
     private bool isIDE = true;
@@ -13,6 +12,7 @@ public class WormController : MonoBehaviour
 
     private void Start()
     {
+        AttackZone.SetActive(false);
         ani = GetComponent<Animator>();
     }
 
@@ -45,6 +45,22 @@ public class WormController : MonoBehaviour
     {
         isDie = true;
         ani.SetTrigger("DieTrigger");
+
+    }
+
+    public void Dead()
+    {
+        Destroy(gameObject);
+    }
+
+    public void StartAttackZone()
+    {
+        AttackZone.SetActive(true);
+    }
+
+    public void EndAttackZone()
+    {
+        AttackZone.SetActive(false);
     }
 
     IEnumerator StartAttack()
