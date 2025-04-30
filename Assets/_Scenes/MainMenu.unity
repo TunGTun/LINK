@@ -3863,8 +3863,6 @@ MonoBehaviour:
   sfxSounds:
   - soundName: Click
     soundClip: {fileID: 8300000, guid: 0bc0f27005bb9ae48a8aa4070af18e2b, type: 3}
-  - soundName: Move
-    soundClip: {fileID: 8300000, guid: 7871d97be7551554e8b70e15e3704a69, type: 3}
   - soundName: Jump
     soundClip: {fileID: 8300000, guid: 1a921dfc21a6d58409288540c8ac6707, type: 3}
   - soundName: Dash
@@ -7077,6 +7075,7 @@ GameObject:
   - component: {fileID: 1920907258}
   - component: {fileID: 1920907257}
   - component: {fileID: 1920907261}
+  - component: {fileID: 1920907262}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -7188,6 +7187,18 @@ MonoBehaviour:
   masterSlider: {fileID: 489118153}
   musicSlider: {fileID: 1897315689}
   SFXSlider: {fileID: 814246615}
+--- !u!114 &1920907262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920907256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd6e1fcc68b40c741b10a3f97deb2380, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1927166930
 GameObject:
   m_ObjectHideFlags: 0
@@ -7752,7 +7763,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2125473232}
   - component: {fileID: 2125473231}
-  - component: {fileID: 2125473233}
   - component: {fileID: 2125473230}
   m_Layer: 0
   m_Name: Main Camera
@@ -7835,27 +7845,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2125473233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2125473229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fc9528699119b1429c28d27a88dc634, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  optionMenu: {fileID: 0}
-  optionPanelRect: {fileID: 0}
-  mainMenu: {fileID: 0}
-  leftPosX: 0
-  middlePosX: 0
-  tweenDuration: 0
-  guidePanelRect: {fileID: 0}
-  storyPanelRect: {fileID: 0}
-  creditPanelRect: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
