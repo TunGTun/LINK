@@ -1,71 +1,108 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class EliseController_cow : MonoBehaviour
 {
-    public float speed = 2f;
-    private bool movingRight = true;
-    private bool isAttacking = false;
+	public float speed = 2f;
+	public GameObject attackZone;
 
-    private Animator animator;
-    private Rigidbody2D rb;
+	private bool movingRight = true;
+	private bool isAttacking = false;
 
-    void Start()
-    {
-        animator = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
-    }
+	private Animator animator;
+	private Rigidbody2D rb;
 
-    void Update()
-    {
-        if (!isAttacking)
-        {
-            Move();
-        }
-    }
+	void Start()
+	{
+		animator = GetComponent<Animator>();
+		rb = GetComponent<Rigidbody2D>();
+		if (attackZone != null)
+		{
+			attackZone.SetActive(false);
+		}
+	}
 
-    void Move()
-    {
-        animator.SetBool("isMoving", true);
+	void Update()
+	{
+		if (!isAttacking)
+		{
+			Move();
+			CheckWallAhead(); // <-- Thêm hàm này
+		}
+	}
 
-        if (movingRight)
-        {
-            rb.velocity = new Vector2(speed, rb.velocity.y);
-        }
-        else
-        {
-            rb.velocity = new Vector2(-speed, rb.velocity.y);
-        }
-    }
 
-    void Flip()
-    {
-        movingRight = !movingRight; // Đảo hướng
-        Vector3 newScale = transform.localScale;
-        newScale.x *= -1;
-        transform.localScale = newScale;
-    }
+	void Move()
+	{
+		animator.SetBool("isMoving", true);
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            animator.SetBool("isAttacking", true);
-            animator.SetBool("isMoving", false);
-            animator.SetTrigger("AttackTrigger");
-            isAttacking = true;
-        }
-        else if (other.CompareTag("Wall")) // Khi chạm tường, quay lại
-        {
-            Flip();
-        }
-    }
+		float moveDirection = movingRight ? 1 : -1;
+		rb.velocity = new Vector2(moveDirection * speed, rb.velocity.y);
+	}
 
-    public void EndAttack()
-    {
-        animator.SetBool("isAttacking", false);
-        animator.SetBool("isMoving", true);
-        isAttacking = false;
-    }
+	void Flip()
+	{
+		// Lật hướng hiển thị
+		Vector3 scale = transform.localScale;
+		scale.x *= -1;
+		transform.localScale = scale;
+	}
+
+	void OnCollisionEnter2D(Collision2D collision)
+	{
+		// Lấy GameObject chính của đối tượng va chạm
+		GameObject other = collision.collider.gameObject;
+
+		// Dùng tag của GameObject gốc
+		if (other.CompareTag("Wall"))
+		{
+			Debug.Log("Đã chạm tường! Quay đầu lại.");
+			movingRight = !movingRight;
+			Flip();
+		}
+	}
+	void CheckWallAhead()
+	{
+		float direction = movingRight ? 1f : -1f;
+		Vector2 origin = transform.position;
+		Vector2 rayDirection = new Vector2(direction, 0f);
+
+		// Cast ray một đoạn nhỏ phía trước để phát hiện tường
+		RaycastHit2D hit = Physics2D.Raycast(origin, rayDirection, 0.6f, LayerMask.GetMask("Default"));
+
+		if (hit.collider != null && hit.collider.CompareTag("Wall"))
+		{
+			Debug.Log("Raycast gặp tường → quay đầu");
+			movingRight = !movingRight;
+			Flip();
+		}
+	}
+
+
+
+	IEnumerator AttackRoutine()
+	{
+		isAttacking = true;
+
+		rb.velocity = Vector2.zero;
+		animator.SetBool("isMoving", false);
+		animator.SetBool("isAttacking", true);
+		animator.SetTrigger("AttackTrigger");
+
+		yield return new WaitForSeconds(0.5f);
+
+		EndAttack();
+	}
+
+	public void StartAttackZone() => attackZone?.SetActive(true);
+
+	public void EndAttackZone() => attackZone?.SetActive(false);
+
+	public void EndAttack()
+	{
+		isAttacking = false;
+		animator.SetBool("isAttacking", false);
+		animator.SetBool("isMoving", true);
+		animator.ResetTrigger("AttackTrigger");
+	}
 }
-
-
