@@ -10,7 +10,7 @@ public class CharMovement : LinkMonoBehaviour
 
     [SerializeField] private AudioSource moveAudioSource;
     [SerializeField] private AudioClip moveClip;
-    [SerializeField] private float loopDelay = 0.5f;
+    [SerializeField] private float loopDelay = 0.2f;
     private Coroutine moveSFXCoroutine;
 
     //bool finishSFX = true;
