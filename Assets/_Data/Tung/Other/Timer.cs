@@ -8,9 +8,6 @@ public class Timer : LinkMonoBehaviour
     public TextMeshProUGUI timerText;
     float elapsedTime;
 
-    [SerializeField] private AudioSource clickAudioSource;
-    [SerializeField] private AudioClip clickClip;
-
     [SerializeField] private PauseMenu pauseMenu;
 
     void Update()
@@ -23,22 +20,6 @@ public class Timer : LinkMonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             this.pauseMenu.Pause();
-        }
-    }
-
-    public void PlayClickSFX()
-    {
-        if (clickAudioSource != null && clickClip != null)
-        {
-            clickAudioSource.PlayOneShot(clickClip);
-        }
-    }
-
-    public void StopClickSFX()
-    {
-        if (clickAudioSource != null && clickAudioSource.isPlaying)
-        {
-            clickAudioSource.Stop();
         }
     }
 }
