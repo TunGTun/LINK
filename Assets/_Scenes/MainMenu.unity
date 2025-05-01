@@ -3857,7 +3857,7 @@ MonoBehaviour:
   - soundName: Level2
     soundClip: {fileID: 8300000, guid: 7ad727b146f63524a8d5fb225f76f0e4, type: 3}
   - soundName: Level3
-    soundClip: {fileID: 8300000, guid: e45f635985bbee24c9854df3cc205284, type: 3}
+    soundClip: {fileID: 8300000, guid: 8effc6d60cfec984b84447631630111c, type: 3}
   - soundName: Level4
     soundClip: {fileID: 8300000, guid: c64900619ba75284a8aed7c5f5ae087e, type: 3}
   sfxSounds:
