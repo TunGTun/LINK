@@ -3857,7 +3857,7 @@ MonoBehaviour:
   - soundName: Level2
     soundClip: {fileID: 8300000, guid: 7ad727b146f63524a8d5fb225f76f0e4, type: 3}
   - soundName: Level3
-    soundClip: {fileID: 8300000, guid: e45f635985bbee24c9854df3cc205284, type: 3}
+    soundClip: {fileID: 8300000, guid: 8effc6d60cfec984b84447631630111c, type: 3}
   - soundName: Level4
     soundClip: {fileID: 8300000, guid: c64900619ba75284a8aed7c5f5ae087e, type: 3}
   sfxSounds:
@@ -3875,6 +3875,8 @@ MonoBehaviour:
     soundClip: {fileID: 8300000, guid: ea04564b63bdc7a4c991ff9ec3d79be4, type: 3}
   - soundName: TakeSpeed
     soundClip: {fileID: 8300000, guid: f4e39264ab6e96846ad4653ce2224156, type: 3}
+  - soundName: CheckPoint
+    soundClip: {fileID: 8300000, guid: 645e982eb65879e44a38b479ede89259, type: 3}
   musicSource: {fileID: 1428619427}
   sfxSource: {fileID: 1464276767}
 --- !u!4 &980221005
@@ -5592,7 +5594,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 8115797182190693208, guid: 574c3d0c2a264e74eba801dd88d14da5, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
