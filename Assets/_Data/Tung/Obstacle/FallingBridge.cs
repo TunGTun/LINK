@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class FallingBridge : LinkMonoBehaviour
     public float timeBeforeFall = 2f; // Thời gian trước khi rơi
     public float shakeIntensity = 0.05f; // Độ rung
     public float shakeDuration = 2f; // Thời gian rung
+    public float respawnDelay = 3f;
 
     private Vector3 originalPosition;
     private Rigidbody2D rb;
@@ -47,5 +49,14 @@ public class FallingBridge : LinkMonoBehaviour
 
         rb.isKinematic = false; // Cho phép rơi xuống
         rb.gravityScale = 1f; // Đặt trọng lực để cầu rơi
+        yield return new WaitForSeconds(respawnDelay);
+
+        transform.localScale = Vector3.zero;
+        transform.position = originalPosition;
+        rb.isKinematic = true;
+        rb.velocity = Vector2.zero;
+        rb.gravityScale = 0f;
+        isActivated = false;
+        transform.DOScale(Vector3.one, 1f);
     }
 }

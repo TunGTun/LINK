@@ -9,6 +9,7 @@ public class Timer : LinkMonoBehaviour
     float elapsedTime;
 
     [SerializeField] private PauseMenu pauseMenu;
+    [SerializeField] private CharCtrl charCtrl;
 
     void Update()
     {
@@ -17,7 +18,7 @@ public class Timer : LinkMonoBehaviour
         int seconds = Mathf.FloorToInt(elapsedTime % 60);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) && !charCtrl.CharState.GetIsDead())
         {
             this.pauseMenu.Pause();
         }

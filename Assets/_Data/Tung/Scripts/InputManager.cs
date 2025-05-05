@@ -30,16 +30,29 @@ public class InputManager : LinkMonoBehaviour
     [SerializeField] protected bool _invisibleInput;
     public bool InvisibleInput { get => _invisibleInput; }
 
+    public bool InputAllowed { get; set; }
+
     protected override void Awake()
     {
         base.Awake();
         if (InputManager._instance != null) Debug.LogError("Only 1 InputManager allow to exist");
         InputManager._instance = this;
-        //DontDestroyOnLoad(this);
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+        this.InputAllowed = true;
     }
 
     void Update()
     {
+        if (!this.InputAllowed) 
+        {
+            this._moveInput = 0;
+            this._moveAccelInput = 0;
+            return;
+        }
         this.CheckMoveInput();
         this.CheckJumpInput();
         this.CheckDashInput();

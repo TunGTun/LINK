@@ -7,6 +7,9 @@ public class CheckPoint : LinkMonoBehaviour
     public CharCtrl _charCtrl;
     public Transform respawnPoint;
     public Collider2D coll;
+    public Animator anim;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip checkPointClip;
 
     protected override void Start()
     {
@@ -20,6 +23,8 @@ public class CheckPoint : LinkMonoBehaviour
         {
             _charCtrl.CharStats.UpdateCheckpoint(respawnPoint.position);
             coll.enabled = false;
+            audioSource.PlayOneShot(checkPointClip);
+            anim.SetBool("isChecked", true);
         }
     }
 }
