@@ -2,70 +2,36 @@
 
 public class EliseController_cow : MonoBehaviour
 {
-    public float speed = 2f;
-    private bool movingRight = true;
-    private bool isAttacking = false;
+	private Vector2 direction = Vector2.right;
+	[SerializeField] private float speed = 5f;
 
-    private Animator animator;
-    private Rigidbody2D rb;
+	private void Update()
+	{
+		MoveCharacter();
+		FlipSprite();
+	}
 
-    void Start()
-    {
-        animator = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
-    }
+	private void MoveCharacter()
+	{
+		transform.Translate(direction * speed * Time.deltaTime);
+	}
 
-    void Update()
-    {
-        if (!isAttacking)
-        {
-            Move();
-        }
-    }
+	private void FlipSprite()
+	{
+		if (direction.x != 0)
+		{
+			GetComponent<SpriteRenderer>().flipX = direction.x < 0;
+		}
+	}
 
-    void Move()
-    {
-        animator.SetBool("isMoving", true);
 
-        if (movingRight)
-        {
-            rb.velocity = new Vector2(speed, rb.velocity.y);
-        }
-        else
-        {
-            rb.velocity = new Vector2(-speed, rb.velocity.y);
-        }
-    }
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.gameObject.CompareTag("Wall"))
+		{
+			direction *= -1; // Đảo chiều khi va tường
+		}
+	}
 
-    void Flip()
-    {
-        movingRight = !movingRight; // Đảo hướng
-        Vector3 newScale = transform.localScale;
-        newScale.x *= -1;
-        transform.localScale = newScale;
-    }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            animator.SetBool("isAttacking", true);
-            animator.SetBool("isMoving", false);
-            animator.SetTrigger("AttackTrigger");
-            isAttacking = true;
-        }
-        else if (other.CompareTag("Wall")) // Khi chạm tường, quay lại
-        {
-            Flip();
-        }
-    }
-
-    public void EndAttack()
-    {
-        animator.SetBool("isAttacking", false);
-        animator.SetBool("isMoving", true);
-        isAttacking = false;
-    }
 }
-
-
