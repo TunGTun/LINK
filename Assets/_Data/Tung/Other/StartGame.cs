@@ -7,12 +7,13 @@ public class StartGame : LinkMonoBehaviour
 {
     [SerializeField] protected GameObject player;
     [SerializeField] protected Rigidbody2D rigid2D;
+    [SerializeField] protected Transform startPortal;
 
     protected override void Start()
     {
         base.Start();
         player.transform.localScale = Vector3.zero;
-        player.transform.position = new Vector3(1, -1, -5);
+        player.transform.position = new Vector3(startPortal.position.x, startPortal.position.y, -5);
         rigid2D.simulated = false;
         InputManager.Instance.InputAllowed = false;
         StartCoroutine(WaitForAnim());
