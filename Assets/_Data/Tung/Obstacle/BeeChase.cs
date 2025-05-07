@@ -15,6 +15,11 @@ public class BeeChase : LinkMonoBehaviour
     public GameObject cFire;
     public GameObject cSmoke;
 
+    public GameObject beePrefab;      // Prefab của ong
+    public GameObject beeHolder;   // GameObject cha để chứa các ong
+    public int beeCount = 5;          // Số lượng ong cần spawn
+    public float spawnInterval = 2f; // Thời gian giữa các lần spawn
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -56,5 +61,30 @@ public class BeeChase : LinkMonoBehaviour
         yield return new WaitForSeconds(0.5f);
         cSmoke.transform.DOMoveY(-1.75f, 2f);
         tFire.transform.DOScale(Vector3.zero, 0.5f);
+
+        yield return new WaitForSeconds(2f);
+        StartCoroutine(SpawnBees());
+
+    }
+
+    private IEnumerator SpawnBees()
+    {
+        for (int i = 0; i < beeCount; i++)
+        {
+            float randomPosition = Random.Range(-1f, 1f);
+            Vector3 beePosition = new Vector3(
+                beeHolder.transform.position.x + randomPosition,
+                beeHolder.transform.position.y + randomPosition,
+                0f // Đảm bảo z = 0
+            );
+
+            GameObject bee = Instantiate(beePrefab, beePosition, Quaternion.identity, beeHolder.transform);
+
+            Vector3 fixedPosition = bee.transform.localPosition;
+            fixedPosition.z = 0f;
+            bee.transform.localPosition = fixedPosition;
+
+            yield return new WaitForSeconds(spawnInterval);
+        }
     }
 }

@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class Bee : MonoBehaviour
 {
     public float attackCooldown = 1f;
-    public float attackRangeMin = 276f;
-    public float attackRangeMax = 286f;
-    public float attackSpeed = 6f;
+    public float attackRangeMin = 265.5f;
+    public float attackRangeMax = 308.5f;
+    public float attackSpeed = 12f;
     public float waitAfterHitGround = 0.3f;
     public float returnHeight = 3.5f;
 
@@ -22,9 +23,11 @@ public class Bee : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
-        cooldownTimer = 0f;
+        cooldownTimer = 2f;
         originalScaleX = transform.localScale.x;
         originalRotation = transform.rotation;
+        transform.localScale = Vector3.zero;
+        transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
     }
 
     void Update()
@@ -43,7 +46,11 @@ public class Bee : MonoBehaviour
             playerX <= attackRangeMax &&
             playerY < beeY)
         {
-            moveDirection = ((Vector2)player.position - (Vector2)transform.position).normalized;
+            float randomOffset = Random.Range(2f, 4f); 
+            Vector2 directionToPlayer = ((Vector2)player.position - (Vector2)transform.position).normalized;
+            Vector2 targetPosition = (Vector2)player.position + directionToPlayer * randomOffset;
+            moveDirection = (targetPosition - (Vector2)transform.position).normalized;
+
             shouldMove = true;
             isAttacking = true;
             cooldownTimer = attackCooldown;
