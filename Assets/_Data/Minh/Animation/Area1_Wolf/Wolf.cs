@@ -10,7 +10,7 @@ public class Wolf : MonoBehaviour
     private Animator animator;
     private bool isDead = false;
     private bool isMoving = false;
-    private bool isAttacking = false;
+    //private bool isAttacking = false;
 
     void Start()
     {
@@ -24,7 +24,7 @@ public class Wolf : MonoBehaviour
         if (player.position.x > A)
         {
             isMoving = true;
-            isAttacking = true;
+            //isAttacking = true;
             animator.SetBool("isAttacking", true);
 
 
