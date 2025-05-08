@@ -18047,6 +18047,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: YellowPortal
       objectReference: {fileID: 0}
+    - target: {fileID: 2377567290317814465, guid: 5c5af908ce468284e93e31245efc2333, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5806985694181565657, guid: 5c5af908ce468284e93e31245efc2333, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -22564,8 +22568,8 @@ GameObject:
   - component: {fileID: 1361447185}
   - component: {fileID: 1361447186}
   - component: {fileID: 1361447187}
-  - component: {fileID: 1361447189}
-  - component: {fileID: 1361447188}
+  - component: {fileID: 1361447190}
+  - component: {fileID: 1361447191}
   m_Layer: 0
   m_Name: JumpPad
   m_TagString: Untagged
@@ -22661,27 +22665,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!251 &1361447188
-PlatformEffector2D:
+--- !u!114 &1361447190
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361447184}
   m_Enabled: 1
-  m_UseColliderMask: 1
-  m_ColliderMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RotationalOffset: 0
-  m_UseOneWay: 1
-  m_UseOneWayGrouping: 0
-  m_SurfaceArc: 179
-  m_UseSideFriction: 0
-  m_UseSideBounce: 0
-  m_SideArc: 1
---- !u!68 &1361447189
-EdgeCollider2D:
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2308f179d3667f4590abbb2802c2a2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounce: 10
+  animator: {fileID: 1361447187}
+--- !u!61 &1361447191
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -22710,17 +22709,21 @@ EdgeCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.015068054, y: -0.13958454}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5, y: 0.5}
+    newSize: {x: 0.5, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.41419983, y: 0.22083092}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.15576172, y: -0.03}
-  - {x: 0.18751526, y: -0.03}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &1382038460
 GameObject:
   m_ObjectHideFlags: 0
@@ -25818,7 +25821,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1771118108
 Transform:
   m_ObjectHideFlags: 0
@@ -25850,6 +25853,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1866298160}
   rigid2D: {fileID: 1866298163}
+  startPortal: {fileID: 0}
 --- !u!1 &1791718638
 GameObject:
   m_ObjectHideFlags: 0
@@ -26066,7 +26070,7 @@ MonoBehaviour:
   smoothTime: 0.3
   positionOffset: {x: 0, y: 0}
   xAxisLimit: {x: -50, y: 10000}
-  yAxisLimit: {x: -5, y: 1000}
+  yAxisLimit: {x: -5, y: 11}
   magnitude: 0.05
   duration: 0.1
 --- !u!1 &1812014251
@@ -31186,7 +31190,7 @@ Transform:
   m_GameObject: {fileID: 1866298160}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: -1, z: -1}
+  m_LocalPosition: {x: 367.01, y: 6.25, z: -1}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 1
   m_Children:
