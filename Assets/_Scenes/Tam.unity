@@ -1480,13 +1480,13 @@ MonoBehaviour:
     Nh\u1EA3y: <b><color=#00BFFF>Ph\xEDm \u201CX\u201D</color></b>\r\n<b>     S\u1EED
     d\u1EE5ng k\u0129 n\u0103ng :</b>\r\n             L\u01B0\u1EDBt: <b><color=#32CD32>Ph\xEDm
     \u201CZ\u201D</color></b>\r\n             B\u1EA5t t\u1EED: <b><color=#FF4500>Ph\xEDm
-    \u201CC\u201D</color></b>\r\n<b>      T\u01B0\u01A1ng t\xE1c h\u1EC7 th\u1ED1ng:</b>\r\n           
-    T\u1EA1m d\u1EEBng m\xE0n: <b><color=#FFD700>Ph\xEDm \u201CP\u201D</color></b>\r\n<b>     
+    \u201CC\u201D</color></b>\r\n<b>      T\u01B0\u01A1ng t\xE1c h\u1EC7 th\u1ED1ng
+    :</b>\r\n            T\u1EA1m d\u1EEBng m\xE0n: <b><color=#FFD700>Ph\xEDm \u201CP\u201D</color></b>\r\n<b>     
     S\u1EED d\u1EE5ng chu\u1ED9t \u0111\u1EC3 t\u01B0\u01A1ng t\xE1c v\u1EDBi c\xE1c
     n\xFAt</b>\r\n\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6a4d5f6f95b07ce4d995ade37b0a6409, type: 2}
+  m_sharedMaterial: {fileID: 4377164156609485644, guid: 6a4d5f6f95b07ce4d995ade37b0a6409, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
