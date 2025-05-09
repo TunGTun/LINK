@@ -14,11 +14,12 @@ public class WormController : MonoBehaviour
     {
         AttackZone.SetActive(false);
         ani = GetComponent<Animator>();
+        ani.SetBool("isIde", isIDE);
     }
 
     private void Update()
     {
-        if (!isAttack&&!isDie)
+        if (!isAttack && !isDie)
         {
             IDE();
         }
@@ -26,10 +27,11 @@ public class WormController : MonoBehaviour
 
     void IDE()
     {
-        isIDE=true;
+        isIDE = true;
+        ani.SetBool("isIde", isIDE);
     }
 
-    void OnTriggerEnter2D (Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
@@ -45,7 +47,6 @@ public class WormController : MonoBehaviour
     {
         isDie = true;
         ani.SetTrigger("DieTrigger");
-
     }
 
     public void Dead()
@@ -67,7 +68,7 @@ public class WormController : MonoBehaviour
     {
         isAttack = true;
         isIDE = false;
-        ani.SetBool("isIde", false);
+        ani.SetBool("isIde", isIDE);
         ani.SetTrigger("AttackTrigger");
         yield return new WaitForSeconds(1f);
 
@@ -76,9 +77,9 @@ public class WormController : MonoBehaviour
 
     public void EndAttack()
     {
-        isAttack=false;
+        isAttack = false;
         isIDE = true;
-        ani.SetBool("isIde", true);
+        ani.SetBool("isIde", isIDE);
         ani.ResetTrigger("AttackTrigger");
     }
 }
