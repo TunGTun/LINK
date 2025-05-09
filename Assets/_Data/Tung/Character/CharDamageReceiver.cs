@@ -43,19 +43,6 @@ public class CharDamageReceiver : LinkMonoBehaviour
         Debug.LogWarning(transform.name + ": LoadCharCtrl", gameObject);
     }
 
-    //public void TakeDamage(int dmg, bool isSub = true)
-    //{
-    //    if (!isSub)
-    //    {
-    //        this._CharCtrl.CharStats.AddHP(dmg);
-    //        return;
-    //    }
-    //    this._CharCtrl.CharStats.SubHP(dmg);
-
-    //    Vector2 targetPos = _CharCtrl.Rigidbody2D.position + new Vector2(-_CharCtrl.CharState.SignMove * bounceAmount, bounceAmount);
-    //    _CharCtrl.Rigidbody2D.DOMove(targetPos, 0.1f);
-    //}
-
     public void TakeDamage(int dmg, Vector2 enemyPosition, bool isSub = true)
     {
         if (!isSub)
