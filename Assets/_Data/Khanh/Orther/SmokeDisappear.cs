@@ -24,7 +24,6 @@ public class SmokeDisappear : MonoBehaviour
         }
     }
 
-    // Gọi từ Animation Event ở cuối "FadeOut"
     public void HideTemporarily()
     {
         StartCoroutine(HideAndShow());
@@ -40,6 +39,6 @@ public class SmokeDisappear : MonoBehaviour
         anim.SetBool("Disappear", false);
         spriteRenderer.enabled = true;
         col.enabled = true;
-        isSteppedOn = false; // Reset để cho phép kích hoạt lại
+        isSteppedOn = false; 
     }
 }
